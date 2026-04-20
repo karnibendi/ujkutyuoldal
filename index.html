@@ -1,0 +1,1574 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kütyű Műhely — Kollekció 2026</title>
+<link rel="stylesheet" href="assets/system.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='80' font-family='serif'%3EK%3C/text%3E%3C/svg%3E" />
+<style>
+/* ========== Page-specific ========== */
+
+/* Ticker strip */
+.ticker {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 0;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+}
+.ticker__track {
+  display: flex;
+  gap: 56px;
+  animation: tickerScroll 48s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.ticker__item { display: inline-flex; align-items: center; gap: 56px; }
+.ticker__item::after {
+  content: '✦';
+  color: var(--accent);
+  margin-left: 56px;
+}
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Hero — editorial masthead */
+.hero {
+  padding: 64px 0 80px;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+.hero__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 40px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.hero__meta-right { display: flex; gap: 32px; }
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: end;
+}
+.hero__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 48px;
+}
+.hero__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(56px, 11vw, 180px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.hero__title-word {
+  display: block;
+  overflow: hidden;
+}
+.hero__title-word span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: riseIn 1.1s cubic-bezier(.2,.8,.2,1) both;
+}
+.hero__title-word:nth-child(2) span { animation-delay: .15s; }
+.hero__title-word:nth-child(3) span { animation-delay: .30s; }
+.hero__title-word.italic span {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a) 0%, var(--grad-b) 50%, var(--grad-c) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@keyframes riseIn {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0); }
+}
+
+.hero__pull {
+  max-width: 340px;
+  padding-bottom: 18px;
+  border-left: 1px solid var(--rule);
+  padding-left: 22px;
+}
+.hero__pull p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.38;
+  margin: 0;
+  color: var(--ink-soft);
+}
+.hero__pull em {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 16px;
+}
+
+.hero__foot {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 48px;
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.hero__stats {
+  display: flex;
+  gap: 40px;
+}
+.hero__stat .n {
+  font-family: var(--serif);
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+.hero__stat .l {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 6px;
+  display: block;
+}
+.hero__issue {
+  justify-self: center;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero__issue strong { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 18px; color: var(--ink); letter-spacing: 0; text-transform: none; margin-top: 4px; }
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 820px) {
+  .hero__head { grid-template-columns: 1fr; gap: 32px; }
+  .hero__pull { max-width: none; }
+  .hero__foot { grid-template-columns: 1fr; gap: 28px; }
+  .hero__issue { justify-self: start; text-align: left; }
+  .hero__actions { justify-content: flex-start; }
+  .hero__stats { flex-wrap: wrap; gap: 28px; }
+  .hero__stat .n { font-size: 40px; }
+}
+
+/* Manifesto — interactive expand */
+.manifesto {
+  padding: 120px 0;
+  position: relative;
+}
+.manifesto__intro {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 56px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+.manifesto__intro h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin: 14px 0 0;
+}
+.manifesto__intro h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.manifesto__intro p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  margin: 0;
+  padding-top: 20px;
+}
+
+.manifesto__list {
+  border-top: 1px solid var(--ink);
+}
+.principle {
+  border-bottom: 1px solid var(--rule);
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 40px;
+  align-items: center;
+  cursor: pointer;
+  transition: padding 300ms cubic-bezier(.2,.6,.2,1);
+  position: relative;
+}
+.principle:hover .principle__title { color: var(--accent-ink); }
+.principle__num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--ink-mute);
+}
+.principle__title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-weight: 400;
+  transition: color 220ms ease;
+}
+.principle__plus {
+  width: 28px; height: 28px;
+  position: relative;
+  flex-shrink: 0;
+}
+.principle__plus::before, .principle__plus::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  transition: transform 320ms cubic-bezier(.2,.8,.2,1);
+}
+.principle__plus::before { left: 0; right: 0; top: 50%; height: 1px; transform: translateY(-50%); }
+.principle__plus::after  { top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%); }
+.principle.open .principle__plus::after { transform: translateX(-50%) rotate(90deg); }
+.principle__body {
+  grid-column: 2 / 3;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 420ms cubic-bezier(.2,.6,.2,1), padding 420ms ease;
+  opacity: 0;
+}
+.principle.open .principle__body {
+  max-height: 400px;
+  padding-top: 18px;
+  opacity: 1;
+}
+.principle__body p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0;
+}
+.principle__body .pull {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 14px;
+  display: inline-block;
+}
+
+@media (max-width: 720px) {
+  .manifesto__intro { grid-template-columns: 1fr; gap: 24px; }
+  .principle { grid-template-columns: 56px 1fr auto; gap: 20px; }
+  .principle__body { grid-column: 2 / 4; }
+}
+
+/* Collection — editorial spreads */
+.collection {
+  padding: 96px 0 40px;
+  position: relative;
+}
+.collection__masthead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 48px;
+}
+.collection__eyebrow {
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.collection__eyebrow strong { color: var(--ink); font-weight: 500; }
+.collection__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 108px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin: 20px 0 0;
+}
+.collection__title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.collection__lead {
+  max-width: 360px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  padding-bottom: 8px;
+}
+
+.spreads { display: grid; gap: 88px; }
+
+.spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.spread:nth-child(even) { direction: rtl; }
+.spread:nth-child(even) > * { direction: ltr; }
+
+.spread__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+.spread__ph {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+.spread__num {
+  position: absolute;
+  top: -24px; left: -8px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(96px, 14vw, 220px);
+  line-height: 0.8;
+  color: var(--paper);
+  -webkit-text-stroke: 1px var(--ink);
+  text-stroke: 1px var(--ink);
+  pointer-events: none;
+  letter-spacing: -0.04em;
+  z-index: 2;
+}
+.spread:hover .spread__num { color: var(--accent); -webkit-text-stroke-color: var(--accent-ink); }
+
+.spread__tag {
+  position: absolute;
+  bottom: 18px; left: 18px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+.spread__tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.spread__body { padding: 8px 0; }
+.spread__badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.spread__badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+.spread__name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+.spread__slogan {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--rule);
+  max-width: 520px;
+}
+.spread__facts { display: grid; gap: 18px; margin-bottom: 28px; max-width: 540px; }
+.spread__fact { display: grid; grid-template-columns: 120px 1fr; gap: 20px; font-size: 14.5px; line-height: 1.5; }
+.spread__fact dt {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-top: 3px;
+}
+.spread__fact dd { margin: 0; color: var(--ink-soft); }
+.spread__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 18px 0 22px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.spread__price { font-family: var(--serif); font-size: 26px; letter-spacing: -0.01em; line-height: 1.1; max-width: 260px; }
+.spread__price em { background: linear-gradient(135deg, var(--grad-a) 0%, var(--grad-b) 50%, var(--grad-c) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; }
+.spread__price small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mute); display: block; margin-top: 6px; letter-spacing: 0.22em; }
+.spread__specs { display: flex; gap: 20px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); }
+.spread__specs span strong { color: var(--ink); display: block; font-weight: 500; margin-top: 3px; font-family: var(--serif); font-size: 12px; letter-spacing: 0; text-transform: none; }
+
+.spread__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 220ms ease, color 220ms ease;
+}
+.save-btn:hover { background: var(--ink); color: var(--paper); }
+.save-btn.saved { background: var(--accent); color: var(--ink); border-color: var(--accent-ink); }
+.save-btn.saved .plus::before { content: '✓'; font-family: var(--serif); font-size: 14px; }
+.save-btn .plus { display: inline-flex; align-items: center; justify-content: center; width: 14px; }
+.save-btn .plus::before { content: '+'; font-size: 16px; line-height: 1; }
+
+.review-pill {
+  margin-top: 20px;
+  padding: 18px;
+  border-left: 2px solid var(--accent);
+  background: var(--paper-2);
+}
+.review-pill q {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--ink);
+  quotes: none;
+}
+.review-pill q::before, .review-pill q::after { content: ''; }
+.review-pill footer {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* ============ Details modal — flip card ============ */
+.details-modal {
+  position: fixed; inset: 0; z-index: 2000;
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.details-modal.open { display: flex; animation: dm-fade 200ms ease; }
+.details-modal__scrim {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, oklch(0.12 0.02 280 / 0.82) 0%, oklch(0.08 0.02 280 / 0.96) 80%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+@keyframes dm-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.details-card {
+  position: relative;
+  width: min(720px, 94vw);
+  height: min(780px, 90vh);
+  perspective: 2400px;
+  animation: dm-rise 520ms cubic-bezier(.22,.8,.2,1) both;
+}
+@keyframes dm-rise {
+  from { opacity: 0; transform: translateY(40px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.details-card__face {
+  position: absolute; inset: 0;
+  padding: 56px;
+  border-radius: 4px;
+  background:
+    radial-gradient(ellipse at 20% 0%, oklch(0.28 0.05 300 / 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, oklch(0.28 0.05 15 / 0.30) 0%, transparent 55%),
+    linear-gradient(160deg, oklch(0.16 0.01 280) 0%, oklch(0.10 0.015 280) 100%);
+  color: oklch(0.95 0.008 80);
+  border: 1px solid oklch(0.95 0.008 80 / 0.12);
+  box-shadow:
+    0 40px 120px oklch(0.06 0.02 280 / 0.7),
+    0 0 0 1px oklch(0.95 0.008 80 / 0.04) inset,
+    0 80px 80px -40px oklch(0.06 0.02 280 / 0.8);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 900ms cubic-bezier(.25,.8,.2,1);
+  overflow: auto;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+.details-card__face--front { transform: rotateY(0deg); }
+.details-card__face--back {
+  transform: rotateY(180deg);
+  background:
+    radial-gradient(ellipse at 80% 0%, oklch(0.30 0.10 15 / 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 80%, oklch(0.24 0.08 300 / 0.35) 0%, transparent 60%),
+    linear-gradient(160deg, oklch(0.12 0.015 300) 0%, oklch(0.08 0.015 300) 100%);
+}
+.details-card.flipped .details-card__face--front { transform: rotateY(-180deg); }
+.details-card.flipped .details-card__face--back  { transform: rotateY(0deg); }
+
+.details-card__close {
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid oklch(0.95 0.008 80 / 0.3);
+  background: oklch(0.95 0.008 80 / 0.04);
+  color: oklch(0.95 0.008 80);
+  font-size: 22px; line-height: 1; cursor: pointer;
+  z-index: 3;
+  transition: background 200ms, transform 200ms;
+}
+.details-card__close:hover { background: oklch(0.95 0.008 80 / 0.16); transform: rotate(90deg); }
+
+.details-card__eyebrow {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: oklch(0.72 0.008 80);
+  display: block; padding-bottom: 12px;
+  border-bottom: 1px solid oklch(0.95 0.008 80 / 0.15);
+}
+.details-card__title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 0.98; letter-spacing: -0.02em;
+  margin: 0;
+}
+.details-card__slogan {
+  font-family: var(--serif); font-style: italic;
+  font-size: 22px; line-height: 1.35; margin: 0;
+  color: oklch(0.88 0.008 80);
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.details-card__ph {
+  aspect-ratio: 16/7;
+  background:
+    repeating-linear-gradient(135deg, oklch(0.95 0.008 80 / 0.06) 0 8px, transparent 8px 16px),
+    linear-gradient(135deg, oklch(0.22 0.02 300) 0%, oklch(0.18 0.02 15) 100%);
+  border: 1px solid oklch(0.95 0.008 80 / 0.14);
+  display: grid; place-items: center;
+  color: oklch(0.85 0.008 80 / 0.6);
+}
+.details-card__ph .ph__label {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; text-align: center; line-height: 1.6;
+}
+.details-card__flip-hint {
+  margin-top: auto; padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid oklch(0.95 0.008 80 / 0.15);
+  gap: 16px; flex-wrap: wrap;
+}
+.details-card__flip-hint > span {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: oklch(0.60 0.008 80);
+}
+.details-card__flip-btn {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  border: none;
+  color: oklch(0.12 0.01 280);
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 240ms ease, filter 240ms ease;
+}
+.details-card__flip-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.details-card__flip-btn em {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  letter-spacing: 0; text-transform: none; font-size: 14px;
+}
+.details-card__flip-btn .arrow { background: oklch(0.12 0.01 280); }
+.details-card__flip-btn .arrow::before, .details-card__flip-btn .arrow::after { background: oklch(0.12 0.01 280); }
+
+.details-card__story-title {
+  font-family: var(--serif); font-weight: 400; font-style: italic;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.05; letter-spacing: -0.015em;
+  margin: 0;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.details-card__story {
+  font-family: var(--serif); font-size: 18px; line-height: 1.55;
+  color: oklch(0.90 0.008 80);
+}
+.details-card__story p { margin: 0 0 14px; }
+.details-card__story p:last-child { margin-bottom: 0; }
+.details-card__story em { font-style: italic; color: oklch(0.96 0.008 80); }
+.details-card__story strong { font-weight: 500; color: oklch(0.96 0.008 80); }
+.details-card__story-sig {
+  padding-top: 16px;
+  border-top: 1px solid oklch(0.95 0.008 80 / 0.15);
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: oklch(0.68 0.008 80);
+}
+.details-card__flip-back {
+  margin-top: auto; align-self: start;
+  background: transparent; border: 1px solid oklch(0.95 0.008 80 / 0.3);
+  color: oklch(0.95 0.008 80);
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 12px 18px; cursor: pointer;
+  transition: background 200ms;
+}
+.details-card__flip-back:hover { background: oklch(0.95 0.008 80 / 0.08); }
+
+@media (max-width: 640px) {
+  .details-card { height: min(88vh, 740px); }
+  .details-card__face { padding: 32px 24px; }
+  .details-card__title { font-size: 34px; }
+}
+
+
+@media (max-width: 820px) {
+  .collection__masthead { grid-template-columns: 1fr; align-items: start; }
+  .spread { grid-template-columns: 1fr; gap: 32px; }
+  .spread:nth-child(even) { direction: ltr; }
+  .spread__fact { grid-template-columns: 100px 1fr; gap: 14px; }
+}
+
+/* Section divider — noir breaker with quote */
+.breaker {
+  background: var(--noir);
+  color: var(--noir-text);
+  padding: 120px 0;
+  position: relative;
+  margin: 120px 0;
+  overflow: hidden;
+}
+.breaker__quote {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 5.5vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  max-width: 1100px;
+  margin: 0;
+}
+.breaker__quote em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.breaker__quote .mark {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  display: block;
+  font-size: 0.6em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.breaker__cite {
+  margin-top: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding-top: 28px;
+  border-top: 1px solid var(--noir-rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--noir-mute);
+  flex-wrap: wrap;
+}
+.breaker__cite strong { color: var(--noir-text); font-weight: 500; }
+
+/* Index — list navigator */
+.index-nav {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: grid;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.index-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-mute);
+  transition: color 200ms ease;
+  padding: 4px 0;
+}
+.index-nav a::before {
+  content: '';
+  width: 18px; height: 1px;
+  background: currentColor;
+  transition: width 250ms ease;
+}
+.index-nav a:hover, .index-nav a.active { color: var(--ink); }
+.index-nav a.active::before { width: 42px; background: var(--accent-ink); }
+@media (max-width: 1180px) { .index-nav { display: none; } }
+
+/* Final CTA */
+.final-cta {
+  padding: 140px 0 120px;
+  text-align: left;
+  position: relative;
+}
+.final-cta h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 120px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 40px;
+  max-width: 1100px;
+}
+.final-cta h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.final-cta__actions { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+.final-cta__meta {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  flex-wrap: wrap;
+}
+
+/* Easter egg — found gadget modal */
+.egg-hint {
+  position: fixed;
+  left: 24px; bottom: 24px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  z-index: 30;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+.egg-hint.show { opacity: 1; }
+
+.egg-modal {
+  position: fixed;
+  inset: 0;
+  background: oklch(0.18 0.01 80 / 0.82);
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+.egg-modal.open { opacity: 1; pointer-events: auto; }
+.egg-modal__inner {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 48px;
+  max-width: 520px;
+  width: 100%;
+  transform: translateY(20px);
+  transition: transform 400ms cubic-bezier(.2,.8,.2,1);
+}
+.egg-modal.open .egg-modal__inner { transform: translateY(0); }
+.egg-modal h3 { font-family: var(--serif); font-size: 36px; margin: 0 0 12px; line-height: 1; letter-spacing: -0.02em; }
+.egg-modal h3 em { font-style: italic; color: var(--accent-ink); }
+.egg-modal p { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; color: var(--ink-soft); margin: 0 0 24px; }
+.egg-modal .kicker { margin-bottom: 16px; }
+.egg-modal button { margin-top: 8px; }
+
+/* Tweaks panel */
+.tweaks {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 18px;
+  z-index: 120;
+  width: 280px;
+  display: none;
+  box-shadow: 0 20px 60px -20px oklch(0.18 0.01 80 / 0.4);
+}
+.tweaks.open { display: block; }
+.tweaks h4 {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.tweaks h4 button {
+  background: none; border: none; padding: 0; font: inherit;
+  color: var(--ink-mute); cursor: pointer; letter-spacing: 0.2em;
+}
+.tweak-row { margin-bottom: 14px; }
+.tweak-row > label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: block;
+  margin-bottom: 8px;
+}
+.tweak-swatches { display: flex; gap: 8px; }
+.tweak-swatch {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+.tweak-swatch:hover { transform: scale(1.1); }
+.tweak-swatch.on { border: 2px solid var(--ink); }
+.tweak-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.tweak-pill {
+  font-family: var(--mono); font-size: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tweak-pill.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+</style>
+</head>
+<body data-screen-label="01 Főoldal">
+
+<!-- Ticker -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span class="ticker__item">Kollekció · 2026 tavasz</span>
+    <span class="ticker__item">Ingyenes kézbesítés 25 000 Ft felett*</span>
+    <span class="ticker__item">Minden kütyü szatíra. Minden vélemény fiktív.</span>
+    <span class="ticker__item">Iskolai projekt — elvileg</span>
+    <span class="ticker__item">№ 04 / új kollekció: Fókusz</span>
+    <!-- duplicated for loop -->
+    <span class="ticker__item">Kollekció · 2026 tavasz</span>
+    <span class="ticker__item">Ingyenes kézbesítés 25 000 Ft felett*</span>
+    <span class="ticker__item">Minden kütyü szatíra. Minden vélemény fiktív.</span>
+    <span class="ticker__item">Iskolai projekt — elvileg</span>
+    <span class="ticker__item">№ 04 / új kollekció: Fókusz</span>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="shell nav__inner">
+    <div class="nav__brand">
+      <span class="nav__brand-mark">Est. 2026</span>
+      <span>Kütyű Műhely</span>
+    </div>
+    <nav class="nav__center" aria-label="Főmenü">
+      <a href="index.html" aria-current="page">Főoldal</a>
+      <a href="#kollekciok">Kollekciók</a>
+      <a href="#manifesto">Kiáltvány</a>
+      <a href="mentett.html">Mentett kütyűk</a>
+      <a href="hirlevel.html">Hírlevél</a>
+    </nav>
+    <div class="nav__right">
+      <span class="nav__lang"><strong>HU</strong> / EN</span>
+      <a href="mentett.html" class="nav__saved">
+        Mentett
+        <span class="nav__saved-count" data-saved-count>00</span>
+      </a>
+      <button class="nav__burger" aria-label="Menü"></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero shell" id="kezdolap">
+  <div class="hero__meta">
+    <span>№ 01 · Masthead</span>
+    <div class="hero__meta-right">
+      <span>Volumen <strong style="color:var(--ink);font-weight:500">IV</strong></span>
+      <span>Budapest · Átrium stúdió</span>
+      <span>Frissítve · 2026. 04. 20.</span>
+    </div>
+  </div>
+
+  <div class="hero__head">
+    <h1 class="hero__title">
+      <span class="hero__title-word"><span>Kütyűk,</span></span>
+      <span class="hero__title-word italic"><span>amikről nem tudtad,</span></span>
+      <span class="hero__title-word"><span>hogy kellenek.</span></span>
+    </h1>
+    <div class="hero__pull reveal">
+      <p>Tizenhárom objektíven felesleges eszköz. Tizenhárom életen át tartó életmódváltás. Egy weboldal, amely kétségbeesetten komolyan veszi önmagát.</p>
+      <em>— A szerkesztőség</em>
+    </div>
+  </div>
+
+  <div class="hero__foot">
+    <div class="hero__stats">
+      <div class="hero__stat"><span class="n">13</span><span class="l">Kurált tárgy</span></div>
+      <div class="hero__stat"><span class="n">04</span><span class="l">Kollekció</span></div>
+      <div class="hero__stat"><span class="n">00</span><span class="l">Valódi szükséglet</span></div>
+    </div>
+    <div class="hero__issue">
+      Kiadás<strong>Vol. IV — 2026/Tavasz</strong>
+    </div>
+    <div class="hero__actions">
+      <a href="#kollekciok" class="btn btn--solid">Belépés a kollekcióba<span class="arrow"></span></a>
+      <a href="#manifesto" class="btn btn--ghost">A filozófia<span class="arrow"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto shell" id="manifesto">
+  <div class="manifesto__intro">
+    <div>
+      <span class="kicker">№ 02 · Kiáltvány</span>
+      <h2>Miért beszélünk <em>úgy</em> egy spagetti mérőről, mintha egy svájci órát mutatnánk be?</h2>
+    </div>
+    <p>Hét olvasóból hat úgy gondolja, hogy a szükségletet a termék hozza létre. A hetedik már vett egy pizza ollót. Ezek a mi alapelveink.</p>
+  </div>
+
+  <div class="manifesto__list" role="list">
+    <article class="principle" role="listitem">
+      <span class="principle__num">01</span>
+      <h3 class="principle__title">A felesleg is döntés.</h3>
+      <span class="principle__plus" aria-hidden="true"></span>
+      <div class="principle__body">
+        <p>Minden kütyü egy kis polgári engedetlenség a minimalizmus ellen. Van konyhánk. Van fürdőszobánk. Van hálószobánk. Legyen bennük káosz is — csak drága.</p>
+        <span class="pull">Corollary · A rendetlenség nem jel. Megrendelés.</span>
+      </div>
+    </article>
+    <article class="principle" role="listitem">
+      <span class="principle__num">02</span>
+      <h3 class="principle__title">Komolyan vesszük a nem komoly dolgokat.</h3>
+      <span class="principle__plus" aria-hidden="true"></span>
+      <div class="principle__body">
+        <p>A pizza olló önmagában nevetséges. Márványpulton, tompa világításban, 48 pontos tipográfiával viszont már egy életmű. A kontextus nem olcsó.</p>
+        <span class="pull">Corollary · A forma nem követi a funkciót. Megelőzi.</span>
+      </div>
+    </article>
+    <article class="principle" role="listitem">
+      <span class="principle__num">03</span>
+      <h3 class="principle__title">A kontraszt a termék.</h3>
+      <span class="principle__plus" aria-hidden="true"></span>
+      <div class="principle__body">
+        <p>Nem a kütyüt adjuk el. Azt az érzést adjuk el, hogy te most valami olyat értettél meg, amit más nem. Ez a túldizájn lényege: nem a tárgy változik meg, hanem a viszonyod hozzá.</p>
+        <span class="pull">Corollary · A vásárló a termék. A termék csak a recept.</span>
+      </div>
+    </article>
+    <article class="principle" role="listitem">
+      <span class="principle__num">04</span>
+      <h3 class="principle__title">Az ár egy szöveg.</h3>
+      <span class="principle__plus" aria-hidden="true"></span>
+      <div class="principle__body">
+        <p>14 990 forint. 24 990 forint. A kilences nem matematika. Hangulat. Történet. Az ár olyan üzenet, amit a termék nem tudna ilyen tömören elmondani.</p>
+        <span class="pull">Corollary · Drága az, aminek a története megéri.</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NOIR BREAKER -->
+<section class="breaker">
+  <div class="shell">
+    <h2 class="breaker__quote reveal">
+      <span class="mark">„</span>
+      Eddig is volt fiókom. De most <em>értem</em> is, miért.
+    </h2>
+    <div class="breaker__cite">
+      <span><strong>Anna, rendmániás</strong> · a Zokni rendezőről</span>
+      <span>Idézet № 07</span>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<div id="kollekciok"></div>
+<main id="collections-root"></main>
+
+<!-- FINAL CTA -->
+<section class="final-cta shell">
+  <span class="kicker">№ 05 · Záró jegyzet</span>
+  <h2 class="reveal">Nem kell megvenned. De már <em>érted</em> a rendszert.</h2>
+  <div class="final-cta__actions">
+    <a href="hirlevel.html" class="btn btn--solid">Hírlevél + termékjavaslat<span class="arrow"></span></a>
+    <a href="mentett.html" class="btn btn--ghost">Mentett kütyűk megnyitása<span class="arrow"></span></a>
+  </div>
+  <div class="final-cta__meta">
+    <span>Kütyű Műhely · Vol. IV · Budapest</span>
+    <span>Next drop — 2026/Nyár</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__grid">
+      <div class="foot__col foot__brand">
+        <p class="foot__brand-name">Kütyű <em style="font-style:italic">Műhely</em></p>
+        <p class="foot__tag">Prémium szemlélet, megkérdőjelezhető termékek. Egy iskolai projekt, amely komolyabban veszi magát a kelleténél.</p>
+      </div>
+      <div class="foot__col">
+        <h4>Oldalak</h4>
+        <ul>
+          <li><a href="index.html">Főoldal</a></li>
+          <li><a href="mentett.html">Mentett kütyűk</a></li>
+          <li><a href="hirlevel.html">Hírlevél</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Kollekciók</h4>
+        <ul>
+          <li><a href="#konyhai">Konyha</a></li>
+          <li><a href="#furdoszobai">Fürdőszoba</a></li>
+          <li><a href="#eletmento">Mindennapok</a></li>
+          <li><a href="#iroda">Fókusz</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Jogi bekezdés</h4>
+        <ul>
+          <li>Minden termékleírás szatíra.</li>
+          <li>Minden vélemény fiktív.</li>
+          <li>A „Design díjas" címke önhivatkozás.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 Kütyű Műhely</span>
+      <em>Készült Reacttel, iróniával és egy csésze feketével.</em>
+      <span>Vol. IV · 04 / 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Index nav (desktop only) -->
+<aside class="index-nav" aria-label="Szekció navigáció">
+  <a href="#kezdolap" data-jump="kezdolap">01 · Masthead</a>
+  <a href="#manifesto" data-jump="manifesto">02 · Kiáltvány</a>
+  <a href="#konyhai" data-jump="konyhai">03 · Konyha</a>
+  <a href="#furdoszobai" data-jump="furdoszobai">04 · Fürdő</a>
+  <a href="#eletmento" data-jump="eletmento">05 · Napi</a>
+  <a href="#iroda" data-jump="iroda">06 · Fókusz</a>
+</aside>
+
+<!-- Details modal (life-changing story) -->
+<div class="details-modal" id="details-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="details-modal__scrim" data-close></div>
+  <article class="details-card" id="details-card">
+    <button class="details-card__close" data-close aria-label="Bezár">×</button>
+    <div class="details-card__face details-card__face--front">
+      <span class="details-card__eyebrow" id="d-eyebrow">№ — · Kollekció</span>
+      <h3 class="details-card__title" id="d-title">—</h3>
+      <p class="details-card__slogan" id="d-slogan">—</p>
+      <div class="details-card__ph ph"><div class="ph__label" id="d-phlabel">Termékfotó</div></div>
+      <div class="details-card__flip-hint">
+        <span>Fordítsd meg a kártyát</span>
+        <button class="details-card__flip-btn" id="d-flip">Az <em>életet megváltó</em> sztori<span class="arrow"></span></button>
+      </div>
+    </div>
+    <div class="details-card__face details-card__face--back">
+      <span class="details-card__eyebrow">Vallomás · gyűjtve a szerkesztőségtől</span>
+      <h4 class="details-card__story-title" id="d-story-title">—</h4>
+      <div class="details-card__story" id="d-story"></div>
+      <div class="details-card__story-sig" id="d-story-sig">— Egy elégedett használó, 2026. március</div>
+      <button class="details-card__flip-back" data-flip-back>← Vissza a termékhez</button>
+    </div>
+  </article>
+</div>
+
+<!-- Easter egg hint + modal -->
+<div class="egg-hint" id="egg-hint">Tipp · nyomj 3-szor a „№" számra</div>
+<div class="egg-modal" id="egg-modal" role="dialog" aria-modal="true">
+  <div class="egg-modal__inner">
+    <span class="kicker">№ 14 · Rejtett darab</span>
+    <h3>A <em>nem-létező</em> kütyü.</h3>
+    <p>Egy termék, aminek csak a neve létezik. Nincs funkció, nincs ár, nincs szállítási határidő. De megvan a szlogenje: <em>„Pont annyit tud, amennyire szükséged van."</em> Azóta eladta magát nyolcvanezer forintért.</p>
+    <button class="btn" onclick="closeEgg()">Rendben<span class="arrow"></span></button>
+  </div>
+</div>
+
+<!-- Tweaks (hidden until toolbar toggle) -->
+<div class="tweaks" id="tweaks">
+  <h4>Tweaks <button id="tw-close">bezár</button></h4>
+  <div class="tweak-row">
+    <label>Akcent</label>
+    <div class="tweak-swatches" data-tw="accent">
+      <button class="tweak-swatch on" data-val="gold" style="background:oklch(0.72 0.10 75)"></button>
+      <button class="tweak-swatch" data-val="olive" style="background:oklch(0.55 0.08 110)"></button>
+      <button class="tweak-swatch" data-val="cobalt" style="background:oklch(0.55 0.12 255)"></button>
+      <button class="tweak-swatch" data-val="rose" style="background:oklch(0.68 0.12 10)"></button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Háttér</label>
+    <div class="tweak-pills" data-tw="theme">
+      <button class="tweak-pill on" data-val="paper">Papír</button>
+      <button class="tweak-pill" data-val="ivory">Elefántcsont</button>
+      <button class="tweak-pill" data-val="noir">Éjszaka</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Főcím</label>
+    <div class="tweak-pills" data-tw="serif">
+      <button class="tweak-pill on" data-val="dm">DM Serif</button>
+      <button class="tweak-pill" data-val="fraunces">Fraunces</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+// ========== Principle accordion ==========
+document.querySelectorAll('.principle').forEach(p => {
+  p.addEventListener('click', () => p.classList.toggle('open'));
+});
+
+// Open first by default
+const firstP = document.querySelector('.principle');
+if (firstP) firstP.classList.add('open');
+
+// ========== Build collections ==========
+const root = document.getElementById('collections-root');
+GADGETS.collections.forEach((col, ci) => {
+  const sec = document.createElement('section');
+  sec.className = 'collection shell';
+  sec.id = col.id;
+  sec.setAttribute('data-screen-label', `${col.number} ${col.title}`);
+
+  sec.innerHTML = `
+    <div class="collection__masthead">
+      <div class="reveal">
+        <div class="collection__eyebrow">
+          <strong>${col.number}</strong>
+          <span>· ${col.subtitle}</span>
+          <span>· ${col.gadgets.length} tárgy</span>
+        </div>
+        <h2 class="collection__title">${col.title.replace(/k\u00fcty\u00fck/i, '<em>kütyük</em>')}</h2>
+      </div>
+      <p class="collection__lead reveal">${col.lead}</p>
+    </div>
+    <div class="spreads"></div>
+  `;
+  const container = sec.querySelector('.spreads');
+
+  col.gadgets.forEach((g, gi) => {
+    const art = document.createElement('article');
+    art.className = 'spread reveal';
+    art.innerHTML = `
+      <div class="spread__media">
+        <div class="spread__num">${String(gi + 1).padStart(2, '0')}</div>
+        <div class="spread__ph ph">
+          <div class="ph__label">Termékfotó<br>${g.name}</div>
+        </div>
+        <div class="spread__tag">${col.number.replace('№ ', 'Kollekció ')}</div>
+      </div>
+      <div class="spread__body">
+        <div class="spread__badges">
+          ${(g.badges || []).map(b => `<span class="spread__badge">${b}</span>`).join('')}
+        </div>
+        <h3 class="spread__name">${g.name}</h3>
+        <p class="spread__slogan">${g.slogan}</p>
+        <dl class="spread__facts">
+          <div class="spread__fact"><dt>Mi ez?</dt><dd>${g.what}</dd></div>
+          <div class="spread__fact"><dt>Miért hülye?</dt><dd>${g.silly}</dd></div>
+          <div class="spread__fact"><dt>Miért zseni?</dt><dd>${g.genius}</dd></div>
+        </dl>
+        <div class="spread__meta">
+          <div class="spread__price"><em style="font-style:italic">${g.price}</em><small>Árkategória · ${g.priceTier || 'II'} / V — érdeklődj e-mailben</small></div>
+          <div class="spread__specs">
+            <span>Anyag<strong>${g.material}</strong></span>
+            <span>Méret<strong>${g.dim}</strong></span>
+          </div>
+        </div>
+        <div class="spread__actions">
+          <button class="save-btn" data-slug="${g.slug}" data-name="${g.name}">
+            <span class="plus"></span>
+            <span class="label">Mentés</span>
+          </button>
+          <button type="button" class="btn btn--ghost details-btn" data-slug="${g.slug}">Részletek<span class="arrow"></span></button>
+        </div>
+        <blockquote class="review-pill">
+          <q>${g.review.quote}</q>
+          <footer>— ${g.review.author}</footer>
+        </blockquote>
+      </div>
+    `;
+    container.appendChild(art);
+  });
+
+  root.appendChild(sec);
+});
+
+// ========== Save buttons ==========
+function refreshSaveButtons() {
+  document.querySelectorAll('.save-btn').forEach(btn => {
+    const slug = btn.dataset.slug;
+    const saved = KutyuStore.has(slug);
+    btn.classList.toggle('saved', saved);
+    btn.querySelector('.label').textContent = saved ? 'Mentve' : 'Mentés';
+  });
+}
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.save-btn');
+  if (!btn) return;
+  const added = KutyuStore.toggle(btn.dataset.slug);
+  refreshSaveButtons();
+  toast(added ? `${btn.dataset.name} · mentve` : `${btn.dataset.name} · eltávolítva`);
+});
+KutyuStore.onChange(refreshSaveButtons);
+refreshSaveButtons();
+
+// ========== Re-apply reveal on dynamic nodes ==========
+(function () {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+})();
+
+// ========== Index nav active state ==========
+const indexLinks = document.querySelectorAll('.index-nav a');
+const targets = [...indexLinks].map(a => document.getElementById(a.dataset.jump)).filter(Boolean);
+const activeIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      indexLinks.forEach(a => a.classList.toggle('active', a.dataset.jump === e.target.id));
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+targets.forEach(t => activeIO.observe(t));
+
+// ========== Details / Life-changing story modal ==========
+const LIFE_STORIES = {
+  'pizza-ollo': {
+    title: 'Az este, amikor megszűnt a válságunk.',
+    story: `<p>2025 november. Két gyerek, egy pizza, egy konyhakés. A feleségem és én már nem vitatkoztunk — csak <em>néztük egymást</em> a konyhapult fölött, miközben a mozzarella elvándorolt az egyik szelettől a másikig, mint egy hidegháborús menekült.</p><p>Aznap este egy barátunk — pszichológus — lefektette: „Ti nem a pizzáról beszéltek. A pizza a metafora." Másnap rendeltem az ollót.</p><p>Azóta a vacsorák 14 percre rövidültek. A gyerekeink először kértek <em>második</em> szeletet. A feleségem elkezdett újra <strong>mosolyogni</strong> evés közben. A terápia marad, de a pizza-rész megoldódott.</p>`,
+    sig: '— R. András, Budapest · 8 hónapja használó'
+  },
+  'spagetti-mero': {
+    title: 'Apámmal ötvenhárom év után beszéltem normálisan.',
+    story: `<p>Apám szerint „egy férfi tudja, mennyi tészta kell". Én szerint apám fél attól, hogy nem tudja. Ötvenhárom évig nem beszéltünk erről. Csak ettünk. Túl sokat. Hallgatva.</p><p>Karácsonykor — fogalmam sincs, miért — kitettem a mérőt a pultra. Apám kézbe vette. Forgatta. Semmit nem mondott. Aztán kimért <em>négy adagot pontosan</em>. Életében először.</p><p>Evés után átölelt. Azóta minden második hétvégén átjön főzni. A mérőt ő tartja.</p>`,
+    sig: '— Cs. Tamás, Pécs · 5 hónapja használó'
+  },
+  'jegkocka-forma': {
+    title: 'Visszakaptam a 30-as éveimet.',
+    story: `<p>Harminckét voltam, amikor először rendeztem <em>igazi</em> vendégséget. Nem „sörös-hidegtál" vendégséget. Az olyat, ahol kredencbe teszik a kabátot.</p><p>A gyémánt alakú jégkocka volt az első dolog, amit valaki megkérdezett tőlem. Aztán következett a második kérdés: „Mivel foglalkozol?" — és életemben először nem szégyelltem elmondani.</p><p>Az a jégkocka nem egy kocka. Az <strong>engedély</strong> arra, hogy a saját életedről komolyan beszélj.</p>`,
+    sig: '— Orsolya, PR-szakember · Budapest'
+  },
+  'avocado-szett': {
+    title: 'Befejeztem a kórházi látogatásokat.',
+    story: `<p>2024-ben kétszer kötöttem ki a sürgősségin. Ugyanaz: avokádó, kés, hüvelykujj. A sebész a második alkalommal már névnapi jókívánságokat mondott.</p><p>A szett érkezése óta nyolcszáznyolc avokádót dolgoztam fel. Varratok száma: nulla. <em>A kezem érintetlen. A toastom művészet.</em></p>`,
+    sig: '— Dóra, grafikus · Szeged'
+  },
+  'telefontarto-wc': {
+    title: 'Előléptettek. A fürdőszobából.',
+    story: `<p>Hibrid munka. Csendes ház. Péntek délután. Egy e-mail, amire <em>most</em> kellett válaszolni — másfél perc után a főnök továbblép. Eddig választanom kellett: karrier vagy méltóság.</p><p>A tartó óta <strong>mindkettő van.</strong> Három hónapja előléptettek. A LinkedIn-posztomat is ott írtam.</p>`,
+    sig: '— L. Gergő, product manager'
+  },
+  'fogkrem-adagolo': {
+    title: 'A házasságom megmenekült egy szenzortól.',
+    story: `<p>A feleségem alulról. Én középről. Tizennégy év vita. Párterápián kétszer is előkerült.</p><p>A szenzor óta <em>nincs tubus.</em> Nincs vita. Van reggel. Van fogmosás. Van csönd — a jó fajta.</p>`,
+    sig: '— Névtelen pár, Budaörs'
+  },
+  'habszappan': {
+    title: 'A vendégeim végre visszajönnek.',
+    story: `<p>Tíz évig rendeztem vendégséget egyedül élő nőként. Udvariasan bólogattak. Sosem jöttek vissza. Nem értettem.</p><p>A habszappan óta <em>háromszor</em> kértek tőlem utánrendelést ugyanarra a péntek estére. A szappan ugyanaz. A hab másik világ. <strong>A hab elintézte, amit tíz év barátság nem tudott.</strong></p>`,
+    sig: '— K. Zsófia, 41, Budapest'
+  },
+  'zokni-rendezo': {
+    title: 'Anyám először mondta: büszke rám.',
+    story: `<p>Harminckilenc éves vagyok. Anyám ötvenkét évig várt erre a mondatra. Nem diploma. Nem esküvő. Nem unoka.</p><p>A zokni-rendezőt látta meg a fiókomban, amikor itt aludt. <em>„Hát te felnőttél."</em> Ennyit mondott. Aztán megölelt.</p>`,
+    sig: '— B. Péter, banki elemző'
+  },
+  'zseb-lampa': {
+    title: 'Megmentettem egy idős asszonyt.',
+    story: `<p>Este fél tíz. A lépcsőházban leesett a villany. Egy néni a harmadik emeleten rekedt egy kanna paradicsommal. Telefon akkumulátor: 2%.</p><p>A kulcstartó-lámpa 43 percig világított. Lekísértem. Azóta kávéra jár fel hozzám. <em>A 400 lument nem kilumenben mérjük. Emberekben.</em></p>`,
+    sig: '— T. Márk, 28, Újpest'
+  },
+  'matrac-zseb': {
+    title: 'Aludni kezdtem újra.',
+    story: `<p>Három éven át hajnali kettőkor kezdődött minden: a telefon a matrac és a fal közé esett. Előszedés = húsz perc. Alvás = vége.</p><p>A zseb óta a telefon <em>tudja a helyét.</em> Én is. Újra nyolc órát alszom. A bőrgyógyászom tizenhárom év után először mondta: „jól néz ki."</p>`,
+    sig: '— E. Bianka, tanár'
+  },
+  'kabel-klip': {
+    title: 'Beköltözött a barátnőm.',
+    story: `<p>Négy hónapja randiztunk. Először jött el hozzám. Az asztalomon tizennyolc kábel lógott a földre — töltő, monitor, mikrofon, egy rejtélyes HDMI.</p><p>Másnap egy klip-csomagot rendelt nekem. Egy héttel később már itt aludt. Két hónap múlva beköltözött. <em>Nem a kábelek miatt. De nélkülük se.</em></p>`,
+    sig: '— M. Dániel, fejlesztő'
+  },
+  'fokusz-kocka': {
+    title: 'Megírtam a könyvet, amit öt éve halogattam.',
+    story: `<p>Huszonöt perc, oldallal lefelé. Aztán megint. Aztán megint. Három hónap alatt <em>hetvenkét ezer szó.</em> A kéziratot februárban elfogadták.</p><p>A kiadóm azt kérdezte: „mi változott?" Egy kocka, mondtam. Bólintott, mintha értené. Nem értette. De most már mindenki azt akarja.</p>`,
+    sig: '— Ny. Adrienn, író'
+  },
+  'monitor-lampa': {
+    title: 'A párommal végre este is beszélünk.',
+    story: `<p>Öt évig dolgoztam sötétben, mert a lámpa visszatükröződött. Esténként két óra hosszat fájt a fejem, nem tudtam beszélni.</p><p>A lámpa óta este hét után újra <em>ember vagyok.</em> Vacsorázunk. Nevetünk. A párom azt mondta a múlt héten: „visszakaptalak."</p>`,
+    sig: '— F. Viktória, UX designer'
+  },
+};
+
+// Build quick index of slug -> gadget + collection
+const GADGET_INDEX = {};
+GADGETS.collections.forEach(col => {
+  col.gadgets.forEach(g => {
+    GADGET_INDEX[g.slug] = { ...g, colNumber: col.number, colTitle: col.title };
+  });
+});
+
+const dModal = document.getElementById('details-modal');
+const dCard = document.getElementById('details-card');
+
+function openDetails(slug) {
+  const g = GADGET_INDEX[slug];
+  if (!g) return;
+  const life = LIFE_STORIES[slug] || { title: 'Életet megváltó történet hamarosan…', story: '<p>A szerkesztőség még gyűjti a vallomásokat.</p>', sig: '— Kütyü Műhely szerkesztőség' };
+  document.getElementById('d-eyebrow').textContent = `${g.colNumber} · ${g.colTitle}`;
+  document.getElementById('d-title').innerHTML = g.name;
+  document.getElementById('d-slogan').textContent = g.slogan;
+  document.getElementById('d-phlabel').innerHTML = `Termékfotó<br>${g.name}`;
+  document.getElementById('d-story-title').innerHTML = life.title;
+  document.getElementById('d-story').innerHTML = life.story;
+  document.getElementById('d-story-sig').textContent = life.sig;
+  dCard.classList.remove('flipped');
+  dModal.classList.add('open');
+  dModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeDetails() {
+  dModal.classList.remove('open');
+  dModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('.details-btn');
+  if (b) { e.preventDefault(); openDetails(b.dataset.slug); return; }
+  if (e.target.closest('[data-close]')) { closeDetails(); return; }
+  if (e.target.closest('#d-flip')) { dCard.classList.add('flipped'); return; }
+  if (e.target.closest('[data-flip-back]')) { dCard.classList.remove('flipped'); return; }
+});
+window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDetails(); });
+
+// ========== Easter egg: click № 14 count ==========
+let eggClicks = 0;
+let eggTimer = null;
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('.collection__eyebrow strong, .hero__meta span:first-child');
+  if (!target) return;
+  eggClicks++;
+  clearTimeout(eggTimer);
+  eggTimer = setTimeout(() => eggClicks = 0, 1400);
+  if (eggClicks >= 3) {
+    openEgg();
+    eggClicks = 0;
+  }
+});
+
+// also Konami-ish: press K, K, K
+let keyBuf = [];
+window.addEventListener('keydown', (e) => {
+  if (e.key.toLowerCase() === 'k') {
+    keyBuf.push(Date.now());
+    keyBuf = keyBuf.filter(t => Date.now() - t < 1200);
+    if (keyBuf.length >= 3) { openEgg(); keyBuf = []; }
+  }
+});
+
+function openEgg() { document.getElementById('egg-modal').classList.add('open'); }
+function closeEgg() { document.getElementById('egg-modal').classList.remove('open'); }
+document.getElementById('egg-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'egg-modal') closeEgg();
+});
+
+// Hint peek: after 20s on page, if no saves yet, show hint for 5s
+setTimeout(() => {
+  if (KutyuStore.count() === 0) {
+    const h = document.getElementById('egg-hint');
+    h.classList.add('show');
+    setTimeout(() => h.classList.remove('show'), 6000);
+  }
+}, 22000);
+
+// ========== Tweaks mode ==========
+const TWEAK_DEFAULS = /*EDITMODE-BEGIN*/{
+  "accent": "rose",
+  "theme": "noir",
+  "serif": "dm"
+}/*EDITMODE-END*/;
+
+const ACCENT_MAP = {
+  gold:   { accent: 'oklch(0.72 0.10 75)',  ink: 'oklch(0.45 0.10 75)' },
+  olive:  { accent: 'oklch(0.55 0.08 110)', ink: 'oklch(0.40 0.08 110)' },
+  cobalt: { accent: 'oklch(0.55 0.12 255)', ink: 'oklch(0.40 0.12 255)' },
+  rose:   { accent: 'oklch(0.68 0.12 10)',  ink: 'oklch(0.48 0.12 10)' },
+};
+const THEME_MAP = {
+  paper: { paper: 'oklch(0.97 0.008 80)', paper2: 'oklch(0.94 0.012 80)', ink: 'oklch(0.18 0.01 80)' },
+  ivory: { paper: 'oklch(0.98 0.020 85)', paper2: 'oklch(0.95 0.022 85)', ink: 'oklch(0.22 0.02 60)' },
+  noir:  { paper: 'oklch(0.16 0.012 80)', paper2: 'oklch(0.22 0.012 80)', ink: 'oklch(0.92 0.008 80)' },
+};
+const SERIF_MAP = {
+  dm:        "'DM Serif Display', 'Times New Roman', serif",
+  fraunces:  "'Fraunces', 'Times New Roman', serif",
+};
+
+function applyTweaks(state) {
+  const r = document.documentElement;
+  const a = ACCENT_MAP[state.accent] || ACCENT_MAP.gold;
+  r.style.setProperty('--accent', a.accent);
+  r.style.setProperty('--accent-ink', a.ink);
+  const t = THEME_MAP[state.theme] || THEME_MAP.paper;
+  r.style.setProperty('--paper', t.paper);
+  r.style.setProperty('--paper-2', t.paper2);
+  r.style.setProperty('--ink', t.ink);
+  // Dark-theme tweaks to ink-soft/mute for readability
+  if (state.theme === 'noir') {
+    r.style.setProperty('--ink-soft', 'oklch(0.78 0.008 80)');
+    r.style.setProperty('--ink-mute', 'oklch(0.58 0.008 80)');
+    r.style.setProperty('--rule', 'oklch(0.92 0.008 80 / 0.18)');
+    r.style.setProperty('--rule-soft', 'oklch(0.92 0.008 80 / 0.10)');
+  } else {
+    r.style.setProperty('--ink-soft', 'oklch(0.32 0.01 80)');
+    r.style.setProperty('--ink-mute', 'oklch(0.52 0.008 80)');
+    r.style.setProperty('--rule', 'oklch(0.18 0.01 80 / 0.18)');
+    r.style.setProperty('--rule-soft', 'oklch(0.18 0.01 80 / 0.10)');
+  }
+  r.style.setProperty('--serif', SERIF_MAP[state.serif] || SERIF_MAP.dm);
+}
+
+// Fraunces lazy load
+(function () {
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&display=swap';
+  document.head.appendChild(l);
+})();
+
+let twState = { ...TWEAK_DEFAULS };
+applyTweaks(twState);
+
+function syncTweakUI() {
+  document.querySelectorAll('[data-tw]').forEach(group => {
+    const k = group.dataset.tw;
+    group.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.val === twState[k]));
+  });
+}
+document.querySelectorAll('[data-tw]').forEach(group => {
+  group.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    twState[group.dataset.tw] = b.dataset.val;
+    applyTweaks(twState);
+    syncTweakUI();
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [group.dataset.tw]: b.dataset.val } }, '*');
+  });
+});
+syncTweakUI();
+
+// Edit-mode protocol
+window.addEventListener('message', (e) => {
+  if (!e.data) return;
+  if (e.data.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('open');
+  if (e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('open');
+});
+document.getElementById('tw-close').addEventListener('click', () => {
+  document.getElementById('tweaks').classList.remove('open');
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+</script>
+</body>
+</html>
