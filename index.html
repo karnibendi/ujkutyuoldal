@@ -753,38 +753,6 @@
 }
 .breaker__cite strong { color: var(--noir-text); font-weight: 500; }
 
-/* Index — list navigator */
-.index-nav {
-  position: fixed;
-  right: 32px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 40;
-  display: grid;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-.index-nav a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--ink-mute);
-  transition: color 200ms ease;
-  padding: 4px 0;
-}
-.index-nav a::before {
-  content: '';
-  width: 18px; height: 1px;
-  background: currentColor;
-  transition: width 250ms ease;
-}
-.index-nav a:hover, .index-nav a.active { color: var(--ink); }
-.index-nav a.active::before { width: 42px; background: var(--accent-ink); }
-@media (max-width: 1180px) { .index-nav { display: none; } }
-
 /* Final CTA */
 .final-cta {
   padding: 140px 0 120px;
@@ -1135,16 +1103,6 @@
   </div>
 </footer>
 
-<!-- Index nav (desktop only) -->
-<aside class="index-nav" aria-label="Szekció navigáció">
-  <a href="#kezdolap" data-jump="kezdolap">01 · Masthead</a>
-  <a href="#manifesto" data-jump="manifesto">02 · Kiáltvány</a>
-  <a href="#konyhai" data-jump="konyhai">03 · Konyha</a>
-  <a href="#furdoszobai" data-jump="furdoszobai">04 · Fürdő</a>
-  <a href="#eletmento" data-jump="eletmento">05 · Napi</a>
-  <a href="#iroda" data-jump="iroda">06 · Fókusz</a>
-</aside>
-
 <!-- Details modal (life-changing story) -->
 <div class="details-modal" id="details-modal" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="details-modal__scrim" data-close></div>
@@ -1320,18 +1278,6 @@ refreshSaveButtons();
   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
   document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 })();
-
-// ========== Index nav active state ==========
-const indexLinks = document.querySelectorAll('.index-nav a');
-const targets = [...indexLinks].map(a => document.getElementById(a.dataset.jump)).filter(Boolean);
-const activeIO = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      indexLinks.forEach(a => a.classList.toggle('active', a.dataset.jump === e.target.id));
-    }
-  });
-}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-targets.forEach(t => activeIO.observe(t));
 
 // ========== Details / Life-changing story modal ==========
 const LIFE_STORIES = {
