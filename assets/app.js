@@ -81,4 +81,19 @@
     const burger = document.querySelector('.nav__burger');
     if (burger) burger.addEventListener('click', () => nav.classList.toggle('nav--menu-open'));
   });
+
+  // Image extension fallback: assets/images/<slug>.png → .jpg → .jpeg → .webp → hide.
+  // Used by inline onerror on <img data-slug="...">.
+  const IMG_EXTS = ['png', 'jpg', 'jpeg', 'webp'];
+  window.tryNextExt = function (img) {
+    const slug = img.dataset.slug;
+    const next = parseInt(img.dataset.extI || '0', 10) + 1;
+    if (!slug || next >= IMG_EXTS.length) {
+      img.removeAttribute('src');
+      img.style.display = 'none';
+      return;
+    }
+    img.dataset.extI = next;
+    img.src = `assets/images/${slug}.${IMG_EXTS[next]}`;
+  };
 })();

@@ -621,7 +621,11 @@ function renderItem(g, i) {
   return `
     <div class="item" data-slug="${g.slug}">
       <span class="item__num">${String(i + 1).padStart(2, '0')}</span>
-      <div class="item__ph ph"></div>
+      <div class="item__ph ph">
+        ${g.image
+          ? `<img src="${g.image}" alt="${g.name}" loading="lazy" onerror="this.remove()">`
+          : `<img src="assets/images/${g.slug}.png" data-slug="${g.slug}" alt="${g.name}" loading="lazy" onerror="tryNextExt(this)">`}
+      </div>
       <div>
         <div class="item__title">${g.name}<small>${g.collection} · ${g.collectionNumber}</small></div>
       </div>
@@ -693,7 +697,9 @@ function renderSuggestions(gs) {
       ${gs.map((g, i) => `
         <article class="sug-card" data-slug="${g.slug}">
           <div class="sug-card__ph ph">
-            <img src="${g.image || `assets/images/${g.slug}.jpg`}" alt="${g.name}" loading="lazy" onerror="this.remove()">
+            ${g.image
+              ? `<img src="${g.image}" alt="${g.name}" loading="lazy" onerror="this.remove()">`
+              : `<img src="assets/images/${g.slug}.png" data-slug="${g.slug}" alt="${g.name}" loading="lazy" onerror="tryNextExt(this)">`}
             <div class="spread__num">${String(i + 1).padStart(2, '0')}</div>
             <div class="ph__label">${g.name}</div>
           </div>

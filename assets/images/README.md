@@ -1,37 +1,45 @@
 # Termékképek
 
 Tedd ide a kütyük termékfotóit. A fájlnév kötelezően a kütyü `slug`-ja
-legyen (`assets/data.js`-ben szerepel), `.jpg` kiterjesztéssel.
+legyen (`assets/data.js`-ben szerepel). **Bármelyik extension működik** —
+a renderer ebben a sorrendben próbálkozik: `.png` → `.jpg` → `.jpeg` →
+`.webp`. Vegyíthető is, kütyűnként más-más formátum.
 
 ## Aktuális slug-ok
 
 ```
-pizza-ollo.jpg
-spagetti-mero.jpg
-jegkocka.jpg
-avokado-kes.jpg
-wc-papir-tarto.jpg
-fogkrem-adagolo.jpg
-habos-szappan.jpg
-zokni-rendezo.jpg
-mini-zseblampa.jpg
-cuccfogo.jpg
-kabel-rendezo.jpg
-pomodoro-kocka.jpg
-monitor-led.jpg
+pizza-ollo
+spagetti-mero
+jegkocka
+avokado-kes
+wc-papir-tarto
+fogkrem-adagolo
+habos-szappan
+zokni-rendezo
+mini-zseblampa
+cuccfogo
+kabel-rendezo
+pomodoro-kocka
+monitor-led
 ```
 
-## Hogyan jelenik meg
+Pl. ha a Geminivel `pizza-ollo.png`-t generáltál, csak dobd ide — semmit
+nem kell átírni.
 
-A renderer minden kütyühöz beilleszt egy `<img>`-et erre a path-ra. Ha a
-fájl nincs ott, a böngésző kidobja (`onerror`), és visszaesik a sávozott
-„Termékfotó · Név" placeholderre — semmi nem törik el.
+## Hogyan működik a fallback
+
+1. A renderer beilleszt egy `<img src="assets/images/<slug>.png">`-et.
+2. Ha a `.png` nem létezik, a böngésző `onerror`-t dob, és a script
+   automatikusan átvált `.jpg`-re, majd `.jpeg`-re, végül `.webp`-re.
+3. Ha egyik se találat, az `<img>` elrejtődik, és a sávozott
+   „Termékfotó · Név" placeholder marad. Nincs törött ikon.
 
 ## Ajánlott méret
 
 - **Arány**: 4:5 (portré) — a kártya magasabb, mint széles.
 - **Felbontás**: legalább 1200×1500px (retina-barát).
-- **Tömörítés**: 70–80% jpeg, 200–400 KB / kép. Nagyobb fájlok lassítják az oldalt.
-- Ha más kiterjesztést szeretnél (`.png`, `.webp`), nyisd meg az
-  `assets/data.js`-t és add hozzá `image: 'assets/images/foo.webp'` mezőt
-  ahhoz a kütyűhöz — ez felülírja a slug-os konvenciót.
+- **Tömörítés**: 200–400 KB / kép. Nagyobb fájlok lassítják az oldalt.
+  PNG-nél érdemes [tinypng](https://tinypng.com)-vel átengedni.
+- Egyedi path/extension: `assets/data.js`-ben add hozzá az adott
+  kütyűhöz `image: 'valami/teljes/path.gif'` mezőt — ez felülírja a
+  konvenciót, és csak ezt az egy URL-t próbálja.
