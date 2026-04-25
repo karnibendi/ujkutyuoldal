@@ -1112,7 +1112,7 @@
       <span class="details-card__eyebrow" id="d-eyebrow">№ — · Kollekció</span>
       <h3 class="details-card__title" id="d-title">—</h3>
       <p class="details-card__slogan" id="d-slogan">—</p>
-      <div class="details-card__ph ph"><div class="ph__label" id="d-phlabel">Termékfotó</div></div>
+      <div class="details-card__ph ph"><img id="d-img" alt="" loading="lazy" onerror="this.removeAttribute('src'); this.style.display='none'"><div class="ph__label" id="d-phlabel">Termékfotó</div></div>
       <div class="details-card__flip-hint">
         <span>Fordítsd meg a kártyát</span>
         <button class="details-card__flip-btn" id="d-flip">Az <em>életet megváltó</em> sztori<span class="arrow"></span></button>
@@ -1211,6 +1211,7 @@ GADGETS.collections.forEach((col, ci) => {
       <div class="spread__media">
         <div class="spread__num">${String(gi + 1).padStart(2, '0')}</div>
         <div class="spread__ph ph">
+          <img src="${g.image || `assets/images/${g.slug}.jpg`}" alt="${g.name}" loading="lazy" onerror="this.remove()">
           <div class="ph__label">Termékfotó<br>${g.name}</div>
         </div>
         <div class="spread__tag">${col.number.replace('№ ', 'Kollekció ')}</div>
@@ -1367,6 +1368,10 @@ function openDetails(slug) {
   document.getElementById('d-title').innerHTML = g.name;
   document.getElementById('d-slogan').textContent = g.slogan;
   document.getElementById('d-phlabel').innerHTML = `Termékfotó<br>${g.name}`;
+  const dImg = document.getElementById('d-img');
+  dImg.style.display = '';
+  dImg.alt = g.name;
+  dImg.src = g.image || `assets/images/${slug}.jpg`;
   document.getElementById('d-story-title').innerHTML = life.title;
   document.getElementById('d-story').innerHTML = life.story;
   document.getElementById('d-story-sig').textContent = life.sig;

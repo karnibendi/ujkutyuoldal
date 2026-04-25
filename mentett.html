@@ -693,6 +693,7 @@ function renderSuggestions(gs) {
       ${gs.map((g, i) => `
         <article class="sug-card" data-slug="${g.slug}">
           <div class="sug-card__ph ph">
+            <img src="${g.image || `assets/images/${g.slug}.jpg`}" alt="${g.name}" loading="lazy" onerror="this.remove()">
             <div class="spread__num">${String(i + 1).padStart(2, '0')}</div>
             <div class="ph__label">${g.name}</div>
           </div>
