@@ -34,7 +34,8 @@ python3 -m http.server 8000
 ├── assets/
 │   ├── system.css   # közös design system (noir / editorial paletta)
 │   ├── app.js       # mentés localStorage + reveal-on-scroll + toast
-│   └── data.js      # kütyü-adatok (négy kollekció)
+│   ├── data.js      # kütyü-adatok (négy kollekció)
+│   └── images/      # termékfotók (slug.jpg) — lásd assets/images/README.md
 └── public/
     └── favicon.svg
 ```
