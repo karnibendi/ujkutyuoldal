@@ -122,8 +122,32 @@
     });
   });
 
-  // Static-export routing polish: the principles/manifesto now live on their
-  // own page, while the home page stays focused on the collections.
+  function insertHomePrinciple() {
+    if (document.querySelector('.home-principle')) return;
+    const anchor = document.getElementById('kollekciok') || document.getElementById('collections-root');
+    if (!anchor) return;
+
+    const section = document.createElement('section');
+    section.className = 'home-principle shell';
+    section.setAttribute('aria-labelledby', 'home-principle-title');
+    section.innerHTML = `
+      <div class="home-principle__meta">
+        <span>№ 02 · Szerkesztőségi alapelv</span>
+        <a href="alapelveink.html">Összes alapelv</a>
+      </div>
+      <div class="home-principle__grid">
+        <h1 id="home-principle-title">Komolyan vesszük a <em>nem komoly</em> dolgokat.</h1>
+        <div class="home-principle__body">
+          <p>A pizza olló önmagában nevetséges. Márványpulton, tompa világításban, nagyvonalú tipográfiával viszont már egy életmű. A kontextus nem olcsó.</p>
+          <span>Corollary · A forma nem követi a funkciót. Megelőzi.</span>
+        </div>
+      </div>
+    `;
+    anchor.before(section);
+  }
+
+  // Static-export routing polish: keep the full principles page separate, but
+  // show the central editorial stance on the home page before the collections.
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href="#manifesto"], a[href="index.html#manifesto"]').forEach(link => {
       link.setAttribute('href', 'alapelveink.html');
@@ -149,6 +173,7 @@
     document.querySelector('.manifesto')?.remove();
     document.querySelector('.breaker')?.remove();
     document.querySelector('.final-cta')?.remove();
+    insertHomePrinciple();
   });
 
   // Static-export polish: add demo/privacy notes and validation without touching
