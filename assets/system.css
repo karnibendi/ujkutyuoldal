@@ -500,6 +500,188 @@ select:focus-visible,
   html { scroll-behavior: auto; }
 }
 
+/* ---------- Home editorial principle ---------- */
+
+.home-principle {
+  padding: clamp(56px, 8vw, 116px) 0 clamp(48px, 7vw, 92px);
+  border-bottom: 1px solid var(--ink);
+  scroll-margin-top: 88px;
+}
+
+.home-principle__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  flex-wrap: wrap;
+}
+
+.home-principle__meta a {
+  color: var(--accent-ink);
+  transition: color 180ms ease;
+}
+
+.home-principle__meta a:hover {
+  color: var(--ink);
+}
+
+.home-principle__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: clamp(36px, 7vw, 88px);
+  align-items: end;
+  padding-top: clamp(36px, 6vw, 72px);
+}
+
+.home-principle h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(48px, 8.5vw, 136px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  max-width: 12ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.home-principle h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-principle__body {
+  max-width: 470px;
+  padding-left: 24px;
+  border-left: 1px solid var(--rule);
+}
+
+.home-principle__body p {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 23px);
+  line-height: 1.38;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.home-principle__body span {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 840px) {
+  .home-principle__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-principle__body {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-principle {
+    padding-top: 44px;
+  }
+
+  .home-principle h1 {
+    font-size: clamp(42px, 14vw, 66px);
+    max-width: 9.5ch;
+  }
+
+  .home-principle__body {
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+    padding: 18px 0 0;
+  }
+}
+
+/* ---------- Dark principles page ---------- */
+
+body[data-screen-label="02 Alapelveink"] {
+  --paper: oklch(0.105 0.012 260);
+  --paper-2: oklch(0.145 0.018 260);
+  --paper-3: oklch(0.19 0.02 260);
+  --ink: oklch(0.96 0.006 85);
+  --ink-soft: oklch(0.82 0.012 85);
+  --ink-mute: oklch(0.66 0.018 85);
+  --rule: oklch(0.96 0.006 85 / 0.18);
+  --rule-soft: oklch(0.96 0.006 85 / 0.10);
+  --accent: oklch(0.79 0.15 74);
+  --accent-ink: oklch(0.82 0.15 74);
+  --noir: oklch(0.075 0.012 260);
+  --noir-soft: oklch(0.13 0.016 260);
+  --noir-text: oklch(0.96 0.006 85);
+  --noir-mute: oklch(0.68 0.018 85);
+  --noir-rule: oklch(0.96 0.006 85 / 0.18);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body[data-screen-label="02 Alapelveink"] .nav {
+  background: var(--paper);
+  border-color: var(--rule);
+}
+
+body[data-screen-label="02 Alapelveink"] .nav__saved {
+  border-color: var(--rule);
+}
+
+body[data-screen-label="02 Alapelveink"] .nav__saved-count,
+body[data-screen-label="02 Alapelveink"] .btn--solid {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+body[data-screen-label="02 Alapelveink"] .btn--solid:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+body[data-screen-label="02 Alapelveink"] .principles-hero__meta span:first-child,
+body[data-screen-label="02 Alapelveink"] .manifesto__intro .kicker,
+body[data-screen-label="02 Alapelveink"] .principles-actions .btn--ghost {
+  color: var(--accent);
+}
+
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(1) .principle__num { color: oklch(0.82 0.16 74); }
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(2) .principle__num { color: oklch(0.80 0.14 205); }
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(3) .principle__num { color: oklch(0.78 0.17 305); }
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(4) .principle__num { color: oklch(0.78 0.16 15); }
+
+body[data-screen-label="02 Alapelveink"] .principle:hover .principle__title {
+  color: var(--accent);
+}
+
+body[data-screen-label="02 Alapelveink"] .principles-quote {
+  background: var(--noir);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+body[data-screen-label="02 Alapelveink"] .foot {
+  margin-top: 0;
+  background: var(--noir);
+}
+
 /* ---------- Codex polish layer ----------
    These important rules intentionally override page-level inline styles.
    The pages are static exports, so the shared system file is the safest place
