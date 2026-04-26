@@ -122,32 +122,40 @@
     });
   });
 
-  function insertHomePrinciple() {
-    if (document.querySelector('.home-principle')) return;
+  function ensureHomeHero() {
     const anchor = document.getElementById('kollekciok') || document.getElementById('collections-root');
     if (!anchor) return;
 
-    const section = document.createElement('section');
-    section.className = 'home-principle shell';
-    section.setAttribute('aria-labelledby', 'home-principle-title');
+    const section = document.querySelector('.hero') || document.createElement('section');
+    section.className = 'hero shell';
+    section.id = 'masthead';
+    section.setAttribute('aria-labelledby', 'home-hero-title');
     section.innerHTML = `
-      <div class="home-principle__meta">
-        <span>№ 02 · Szerkesztőségi alapelv</span>
-        <a href="alapelveink.html">Összes alapelv</a>
+      <div class="hero__meta">
+        <span>№ 01 · Masthead</span>
+        <div class="hero__meta-right">
+          <span>Budapest, Átrium studio</span>
+          <span>Frissítve: 2026.04.20.</span>
+        </div>
       </div>
-      <div class="home-principle__grid">
-        <h1 id="home-principle-title">Komolyan vesszük a <em>nem komoly</em> dolgokat.</h1>
-        <div class="home-principle__body">
-          <p>A pizza olló önmagában nevetséges. Márványpulton, tompa világításban, nagyvonalú tipográfiával viszont már egy életmű. A kontextus nem olcsó.</p>
-          <span>Corollary · A forma nem követi a funkciót. Megelőzi.</span>
+      <div class="hero__grid">
+        <div class="hero__head">
+          <h1 class="hero__title" id="home-hero-title">
+            <span class="hero__title-word"><span>Kütyük</span></span>
+            <span class="hero__title-word italic"><span>amikről nem tudtad,</span></span>
+            <span class="hero__title-word"><span>hogy kellenek</span></span>
+          </h1>
+          <aside class="hero__pull" aria-label="Szerkesztőségi bevezető">
+            <p style="color: var(--ink-mute); font-size: clamp(15px, 1.35vw, 17px); line-height: 1.42;">Tizenhárom objektíven felesleges eszköz. Tizenhárom életen át tartó életmódváltás. Egy weboldal, amely kétségbeesetten komolyan veszi önmagát.<em style="color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.22em;">— A SZERKESZTŐSÉG</em></p>
+          </aside>
         </div>
       </div>
     `;
     anchor.before(section);
   }
 
-  // Static-export routing polish: keep the full principles page separate, but
-  // show the central editorial stance on the home page before the collections.
+  // Static-export routing polish: keep the full principles page separate, while
+  // the home page opens with the editorial masthead before the collections.
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href="#manifesto"], a[href="index.html#manifesto"]').forEach(link => {
       link.setAttribute('href', 'alapelveink.html');
@@ -169,11 +177,11 @@
 
     const isHome = document.body?.dataset.screenLabel === '01 Főoldal';
     if (!isHome) return;
-    document.querySelector('.hero')?.remove();
+    document.querySelector('.home-principle')?.remove();
     document.querySelector('.manifesto')?.remove();
     document.querySelector('.breaker')?.remove();
     document.querySelector('.final-cta')?.remove();
-    insertHomePrinciple();
+    ensureHomeHero();
   });
 
   // Static-export polish: add demo/privacy notes and validation without touching
