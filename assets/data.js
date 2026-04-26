@@ -1,4 +1,4 @@
-// Bővített kütyű-katalógus — 4 szekció, 13 kütyü összesen
+// Bővített kütyü-katalógus — 4 szekció, 13 kütyü összesen
 window.GADGETS = {
   collections: [
     {
@@ -109,7 +109,7 @@ window.GADGETS = {
         },
         {
           slug: 'habos-szappan',
-          name: 'Habos szappanadagoló',
+          name: 'Szappanhab adagoló',
           slogan: 'A szappan új halmazállapota. Felsőbb szint.',
           price: 'Vendégség-árkategória',
           priceTier: 'II',
@@ -127,7 +127,7 @@ window.GADGETS = {
     {
       id: 'eletmento',
       number: '№ 03',
-      title: 'Random életmentő baromságok',
+      title: 'Váratlan életmentő apróságok',
       subtitle: 'A Mindennapok Kollekció',
       lead: 'Ezek azok a termékek, amiket nem vettél volna meg. Aztán vettél. És most úgy beszélsz róluk, mintha a karanténban találtad volna ki őket.',
       gadgets: [

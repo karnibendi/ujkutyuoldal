@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kütyü Műhely — Alapelveink</title>
+<link rel="stylesheet" href="assets/system.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='80' font-family='serif'%3EK%3C/text%3E%3C/svg%3E" />
+<style>
+.principles-hero {
+  padding: clamp(56px, 9vw, 116px) 0 clamp(48px, 7vw, 88px);
+  border-bottom: 1px solid var(--rule);
+}
+.principles-hero__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.principles-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: clamp(36px, 7vw, 88px);
+  align-items: end;
+  padding-top: clamp(36px, 6vw, 72px);
+}
+.principles-hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(58px, 13vw, 172px);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  margin: 0;
+  text-wrap: balance;
+}
+.principles-hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.principles-hero__lead {
+  margin: 0;
+  max-width: 480px;
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.4vw, 24px);
+  line-height: 1.35;
+  font-style: italic;
+  color: var(--ink-soft);
+  padding-left: 22px;
+  border-left: 1px solid var(--rule);
+}
+.manifesto {
+  padding: clamp(72px, 9vw, 128px) 0 40px;
+}
+.manifesto__intro {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+  margin-bottom: clamp(48px, 7vw, 80px);
+}
+.manifesto__intro h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 74px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin: 14px 0 0;
+  text-wrap: balance;
+}
+.manifesto__intro h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.manifesto__intro p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0;
+  padding-top: 18px;
+}
+.manifesto__list {
+  border-top: 1px solid var(--ink);
+}
+.principle {
+  border-bottom: 1px solid var(--rule);
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 28px;
+  gap: clamp(18px, 4vw, 40px);
+  align-items: center;
+  cursor: pointer;
+}
+.principle:hover .principle__title {
+  color: var(--accent-ink);
+}
+.principle__num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--ink-mute);
+}
+.principle__title {
+  font-family: var(--serif);
+  font-size: clamp(25px, 3.4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-weight: 400;
+  transition: color 180ms ease;
+}
+.principle__plus {
+  width: 28px;
+  height: 28px;
+  position: relative;
+}
+.principle__plus::before,
+.principle__plus::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  transition: transform 240ms ease;
+}
+.principle__plus::before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+.principle__plus::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+.principle.open .principle__plus::after {
+  transform: translateX(-50%) rotate(90deg);
+}
+.principle__body {
+  grid-column: 2 / 3;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 320ms ease, opacity 220ms ease, padding 320ms ease;
+}
+.principle.open .principle__body {
+  max-height: 340px;
+  opacity: 1;
+  padding-top: 18px;
+}
+.principle__body p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 720px;
+  margin: 0;
+}
+.principle__body .pull {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 14px;
+  display: inline-block;
+}
+.principles-quote {
+  background: var(--noir);
+  color: var(--noir-text);
+  margin-top: clamp(64px, 9vw, 116px);
+  padding: clamp(72px, 10vw, 120px) 0;
+}
+.principles-quote h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 6vw, 82px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  max-width: 1040px;
+  margin: 0;
+}
+.principles-quote h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b), var(--grad-c));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.principles-quote__cite {
+  margin-top: 42px;
+  padding-top: 24px;
+  border-top: 1px solid var(--noir-rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--noir-mute);
+}
+.principles-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding-top: clamp(44px, 6vw, 72px);
+}
+@media (max-width: 840px) {
+  .principles-hero__grid,
+  .manifesto__intro {
+    grid-template-columns: 1fr;
+  }
+  .principles-hero__lead {
+    max-width: none;
+  }
+}
+@media (max-width: 560px) {
+  .principle {
+    grid-template-columns: 48px minmax(0, 1fr) 24px;
+    padding: 24px 0;
+  }
+  .principle__body {
+    grid-column: 1 / -1;
+  }
+}
+</style>
+</head>
+<body data-screen-label="02 Alapelveink">
+
+<header class="nav">
+  <div class="shell nav__inner">
+    <div class="nav__brand">
+      <span class="nav__brand-mark">Est. 2026</span>
+      <span>Kütyü Műhely</span>
+    </div>
+    <nav class="nav__center" aria-label="Főmenü">
+      <a href="index.html">Főoldal</a>
+      <a href="index.html#kollekciok">Kollekciók</a>
+      <a href="alapelveink.html" aria-current="page">Alapelveink</a>
+      <a href="mentett.html">Mentett kütyük</a>
+      <a href="hirlevel.html">Hírlevél</a>
+    </nav>
+    <div class="nav__right">
+      <span class="nav__lang"><strong>HU</strong> / EN</span>
+      <a href="mentett.html" class="nav__saved">
+        Mentett
+        <span class="nav__saved-count" data-saved-count>00</span>
+      </a>
+      <button class="nav__burger" aria-label="Menü"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="principles-hero shell">
+    <div class="principles-hero__meta">
+      <span>№ 02 · Alapelveink</span>
+      <span>Kütyü Műhely · Vol. IV</span>
+    </div>
+    <div class="principles-hero__grid">
+      <h1>Komolyan vesszük a <em>nem komoly</em> dolgokat.</h1>
+      <p class="principles-hero__lead">Hét olvasóból hat úgy gondolja, hogy a szükségletet a termék hozza létre. A hetedik már vett egy pizza ollót.</p>
+    </div>
+  </section>
+
+  <section class="manifesto shell" id="alapelveink">
+    <div class="manifesto__intro">
+      <div>
+        <span class="kicker">Szerkesztőségi álláspont</span>
+        <h2>Miért beszélünk <em>úgy</em> egy spagetti mérőről, mintha egy svájci órát mutatnánk be?</h2>
+      </div>
+      <p>Azért, mert a Kütyü Műhelyben a túlmagyarázás nem hiba, hanem módszer. Ezek az alapelveink.</p>
+    </div>
+
+    <div class="manifesto__list" role="list">
+      <article class="principle open" role="button" tabindex="0" aria-expanded="true">
+        <span class="principle__num">01</span>
+        <h3 class="principle__title">A felesleg is döntés.</h3>
+        <span class="principle__plus" aria-hidden="true"></span>
+        <div class="principle__body">
+          <p>Minden kütyü egy kis polgári engedetlenség a minimalizmus ellen. Van konyhánk. Van fürdőszobánk. Van hálószobánk. Legyen bennük káosz is — csak drága.</p>
+          <span class="pull">Corollary · A rendetlenség nem jel. Megrendelés.</span>
+        </div>
+      </article>
+
+      <article class="principle" role="button" tabindex="0" aria-expanded="false">
+        <span class="principle__num">02</span>
+        <h3 class="principle__title">Komolyan vesszük a nem komoly dolgokat.</h3>
+        <span class="principle__plus" aria-hidden="true"></span>
+        <div class="principle__body">
+          <p>A pizza olló önmagában nevetséges. Márványpulton, tompa világításban, 48 pontos tipográfiával viszont már egy életmű. A kontextus nem olcsó.</p>
+          <span class="pull">Corollary · A forma nem követi a funkciót. Megelőzi.</span>
+        </div>
+      </article>
+
+      <article class="principle" role="button" tabindex="0" aria-expanded="false">
+        <span class="principle__num">03</span>
+        <h3 class="principle__title">A kontraszt a termék.</h3>
+        <span class="principle__plus" aria-hidden="true"></span>
+        <div class="principle__body">
+          <p>Nem a kütyüt adjuk el. Azt az érzést adjuk el, hogy te most valami olyat értettél meg, amit más nem. Ez a túldizájn lényege: nem a tárgy változik meg, hanem a viszonyod hozzá.</p>
+          <span class="pull">Corollary · A vásárló a termék. A termék csak a recept.</span>
+        </div>
+      </article>
+
+      <article class="principle" role="button" tabindex="0" aria-expanded="false">
+        <span class="principle__num">04</span>
+        <h3 class="principle__title">Az ár egy szöveg.</h3>
+        <span class="principle__plus" aria-hidden="true"></span>
+        <div class="principle__body">
+          <p>14 990 forint. 24 990 forint. A kilences nem matematika. Hangulat. Történet. Az ár olyan üzenet, amit a termék nem tudna ilyen tömören elmondani.</p>
+          <span class="pull">Corollary · Drága az, aminek a története megéri.</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="principles-actions">
+      <a href="index.html#kollekciok" class="btn btn--solid">Vissza a kollekcióhoz<span class="arrow"></span></a>
+      <a href="hirlevel.html" class="btn btn--ghost">Hírlevél + javaslat<span class="arrow"></span></a>
+    </div>
+  </section>
+
+  <section class="principles-quote">
+    <div class="shell">
+      <h2 class="reveal">Eddig is volt fiókom. De most <em>értem</em> is, miért.</h2>
+      <div class="principles-quote__cite">Anna, rendmániás · a Zokni rendezőről</div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__grid">
+      <div class="foot__col foot__brand">
+        <p class="foot__brand-name">Kütyü <em>Műhely</em></p>
+        <p class="foot__tag">Prémium szemlélet, megkérdőjelezhető termékek. Egy iskolai projekt, amely komolyabban veszi magát a kelleténél.</p>
+      </div>
+      <div class="foot__col">
+        <h4>Oldalak</h4>
+        <ul>
+          <li><a href="index.html">Főoldal</a></li>
+          <li><a href="alapelveink.html">Alapelveink</a></li>
+          <li><a href="mentett.html">Mentett kütyük</a></li>
+          <li><a href="hirlevel.html">Hírlevél</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Kollekciók</h4>
+        <ul>
+          <li><a href="index.html#konyhai">Konyha</a></li>
+          <li><a href="index.html#furdoszobai">Fürdőszoba</a></li>
+          <li><a href="index.html#eletmento">Mindennapok</a></li>
+          <li><a href="index.html#iroda">Fókusz</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Jogi bekezdés</h4>
+        <ul>
+          <li>Minden termékleírás szatíra.</li>
+          <li>Minden vélemény fiktív.</li>
+          <li>A „Design díjas" címke önhivatkozás.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 Kütyü Műhely</span>
+      <em>Készült Reacttel, iróniával és egy csésze feketével.</em>
+      <span>Vol. IV · 04 / 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>
+document.querySelectorAll('.principle').forEach(item => {
+  function toggle() {
+    const open = !item.classList.contains('open');
+    item.classList.toggle('open', open);
+    item.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  item.addEventListener('click', toggle);
+  item.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggle();
+  });
+});
+</script>
+</body>
+</html>
