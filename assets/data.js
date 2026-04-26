@@ -127,7 +127,7 @@ window.GADGETS = {
     {
       id: 'eletmento',
       number: '№ 03',
-      title: 'Random életmentő baromságok',
+      title: 'Váratlan életmentő apróságok',
       subtitle: 'A Mindennapok Kollekció',
       lead: 'Ezek azok a termékek, amiket nem vettél volna meg. Aztán vettél. És most úgy beszélsz róluk, mintha a karanténban találtad volna ki őket.',
       gadgets: [
