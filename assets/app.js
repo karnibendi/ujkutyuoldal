@@ -141,15 +141,27 @@
 
   // Copy polish: keep the product and newsletter phrasing elevated.
   document.addEventListener('DOMContentLoaded', () => {
+    const oldUpper = 'Küty\u0171';
+    const oldLower = 'küty\u0171';
+    document.title = document.title.replaceAll(oldUpper, 'Kütyü').replaceAll(oldLower, 'kütyü');
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     const nodes = [];
     let node = walker.nextNode();
     while (node) {
-      if (node.nodeValue.includes('Miért hülye?')) nodes.push(node);
+      if (
+        node.nodeValue.includes('Miért hülye?') ||
+        node.nodeValue.includes(oldUpper) ||
+        node.nodeValue.includes(oldLower)
+      ) {
+        nodes.push(node);
+      }
       node = walker.nextNode();
     }
     nodes.forEach(textNode => {
-      textNode.nodeValue = textNode.nodeValue.replaceAll('Miért hülye?', 'Miért abszurd?');
+      textNode.nodeValue = textNode.nodeValue
+        .replaceAll('Miért hülye?', 'Miért abszurd?')
+        .replaceAll(oldUpper, 'Kütyü')
+        .replaceAll(oldLower, 'kütyü');
     });
   });
 
