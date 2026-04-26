@@ -37,6 +37,21 @@
     _notify() { this._listeners.forEach(fn => { try { fn(this.get()); } catch (e) {} }); },
   };
 
+  function normalizeGadgetCopy() {
+    const collections = window.GADGETS?.collections || [];
+    collections.forEach(collection => {
+      (collection.gadgets || []).forEach(gadget => {
+        if (gadget.name === 'Habos szappanadagoló') gadget.name = 'Szappanhab adagoló';
+      });
+    });
+    if (Array.isArray(window.GADGETS_FLAT)) {
+      window.GADGETS_FLAT.forEach(gadget => {
+        if (gadget.name === 'Habos szappanadagoló') gadget.name = 'Szappanhab adagoló';
+      });
+    }
+  }
+  normalizeGadgetCopy();
+
   function updateNavCount() {
     document.querySelectorAll('[data-saved-count]').forEach(el => {
       el.textContent = String(KutyuStore.count()).padStart(2, '0');
@@ -179,6 +194,8 @@
     while (node) {
       if (
         node.nodeValue.includes('Miért hülye?') ||
+        node.nodeValue.includes('25 000 Ft felett') ||
+        node.nodeValue.includes('Habos szappanadagoló') ||
         node.nodeValue.includes(oldUpper) ||
         node.nodeValue.includes(oldLower)
       ) {
@@ -189,6 +206,8 @@
     nodes.forEach(textNode => {
       textNode.nodeValue = textNode.nodeValue
         .replaceAll('Miért hülye?', 'Miért abszurd?')
+        .replaceAll('25 000 Ft felett', '2 500 000 Ft felett')
+        .replaceAll('Habos szappanadagoló', 'Szappanhab adagoló')
         .replaceAll(oldUpper, 'Kütyü')
         .replaceAll(oldLower, 'kütyü');
     });
