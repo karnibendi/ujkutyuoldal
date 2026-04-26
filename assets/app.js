@@ -107,6 +107,35 @@
     });
   });
 
+  // Static-export routing polish: the principles/manifesto now live on their
+  // own page, while the home page stays focused on the collections.
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href="#manifesto"], a[href="index.html#manifesto"]').forEach(link => {
+      link.setAttribute('href', 'alapelveink.html');
+      if (link.textContent.trim() === 'Kiáltvány') link.textContent = 'Alapelveink';
+    });
+
+    document.querySelectorAll('.foot__col').forEach(col => {
+      if (col.querySelector('h4')?.textContent.trim() !== 'Oldalak') return;
+      if (col.querySelector('a[href="alapelveink.html"]')) return;
+      const home = col.querySelector('a[href="index.html"]')?.closest('li');
+      if (!home) return;
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = 'alapelveink.html';
+      link.textContent = 'Alapelveink';
+      item.append(link);
+      home.after(item);
+    });
+
+    const isHome = document.body?.dataset.screenLabel === '01 Főoldal';
+    if (!isHome) return;
+    document.querySelector('.hero')?.remove();
+    document.querySelector('.manifesto')?.remove();
+    document.querySelector('.breaker')?.remove();
+    document.querySelector('.final-cta')?.remove();
+  });
+
   // Static-export polish: add demo/privacy notes and validation without touching
   // every exported HTML file.
   document.addEventListener('DOMContentLoaded', () => {
