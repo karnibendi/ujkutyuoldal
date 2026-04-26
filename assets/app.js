@@ -67,9 +67,16 @@
     if (!toastEl) {
       toastEl = document.createElement('div');
       toastEl.className = 'toast';
+      toastEl.setAttribute('role', 'status');
+      toastEl.setAttribute('aria-live', 'polite');
       document.body.appendChild(toastEl);
     }
-    toastEl.innerHTML = '<span class="dot"></span>' + msg;
+    toastEl.replaceChildren();
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    const text = document.createElement('span');
+    text.textContent = msg;
+    toastEl.append(dot, text);
     requestAnimationFrame(() => toastEl.classList.add('show'));
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
@@ -79,7 +86,105 @@
   document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav');
     const burger = document.querySelector('.nav__burger');
-    if (burger) burger.addEventListener('click', () => nav.classList.toggle('nav--menu-open'));
+    if (!nav || !burger) return;
+
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'main-nav');
+    const center = nav.querySelector('.nav__center');
+    if (center && !center.id) center.id = 'main-nav';
+
+    function setMenu(open) {
+      nav.classList.toggle('nav--menu-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    burger.addEventListener('click', () => setMenu(!nav.classList.contains('nav--menu-open')));
+    nav.querySelectorAll('.nav__center a').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+  });
+
+  // Static-export polish: add demo/privacy notes and validation without touching
+  // every exported HTML file.
+  document.addEventListener('DOMContentLoaded', () => {
+    const newsletter = document.getElementById('newsletter-form');
+    if (newsletter && !newsletter.querySelector('.form-note')) {
+      const note = document.createElement('p');
+      note.className = 'form-note';
+      note.textContent = 'Demo űrlap: nincs külső adatküldés, nincs valódi feliratkozás. A visszajelzés helyben születik.';
+      newsletter.querySelector('.submit')?.before(note);
+    }
+
+    const suggest = document.getElementById('suggest-form');
+    if (suggest && !suggest.querySelector('.form-note')) {
+      const note = document.createElement('p');
+      note.className = 'form-note';
+      note.textContent = 'A javaslat csak ebben a böngészőben kerül a falra. Nincs valódi beküldés, csak prémium illúzió.';
+      suggest.querySelector('.submit')?.before(note);
+    }
+  });
+
+  document.addEventListener('submit', (e) => {
+    const form = e.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    if (form.id !== 'newsletter-form' && form.id !== 'suggest-form') return;
+    if (form.checkValidity()) return;
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    form.reportValidity();
+    toast('Hiányzik valami · nézd át a kötelező mezőket');
+  }, true);
+
+  // Replace the native confirm dialog on the wishlist with an in-page two-click
+  // confirmation that keeps the editorial feel intact.
+  let clearArmed = false;
+  let clearTimer = null;
+  document.addEventListener('click', (e) => {
+    const clearBtn = e.target.closest('#clear-all');
+    if (!clearBtn) return;
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    if (!clearArmed) {
+      clearArmed = true;
+      clearBtn.classList.add('confirming');
+      clearBtn.innerHTML = 'Még egy kattintás, és üres a lista<span class="arrow"></span>';
+      toast('Törlés megerősítése · kattints még egyszer');
+      clearTimer = setTimeout(() => {
+        clearArmed = false;
+        clearBtn.classList.remove('confirming');
+        clearBtn.innerHTML = 'Mindet eltávolít<span class="arrow"></span>';
+      }, 3600);
+      return;
+    }
+
+    clearTimeout(clearTimer);
+    clearArmed = false;
+    KutyuStore.clear();
+    toast('A kívánságlista kiürítve');
+  }, true);
+
+  // Details modal focus polish, layered over the page-specific modal code.
+  let detailsReturnFocus = null;
+  document.addEventListener('click', (e) => {
+    const detailsBtn = e.target.closest('.details-btn');
+    if (detailsBtn) {
+      detailsReturnFocus = detailsBtn;
+      setTimeout(() => document.querySelector('.details-card__close')?.focus(), 0);
+    }
+  }, true);
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-close]')) return;
+    setTimeout(() => {
+      if (detailsReturnFocus && typeof detailsReturnFocus.focus === 'function') {
+        detailsReturnFocus.focus();
+      }
+    }, 0);
   });
 
   // Image extension fallback: assets/images/<slug>.png → .jpg → .jpeg → .webp → hide.
