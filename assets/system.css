@@ -849,3 +849,322 @@ body[data-screen-label="02 Alapelveink"] .foot {
     gap: 22px !important;
   }
 }
+
+/* ---------- Editorial motion layer ----------
+   Shared page animations for newsletter, saved list, and principles routes. */
+
+@keyframes kmRiseSoft {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes kmSlideSoft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes kmScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes kmLineDraw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes kmSheen {
+  from { transform: translateX(-120%) skewX(-14deg); opacity: 0; }
+  20% { opacity: 0.38; }
+  55% { opacity: 0.18; }
+  to { transform: translateX(140%) skewX(-14deg); opacity: 0; }
+}
+
+@keyframes kmGradientFlow {
+  from { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  to { background-position: 0% 50%; }
+}
+
+@keyframes kmFloatTiny {
+  from, to { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes kmTickerGlow {
+  from, to { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .split__meta,
+body[data-screen-label="02 Mentett kütyük"] .mast__row,
+body[data-screen-label="02 Alapelveink"] .principles-hero__meta {
+  animation: kmSlideSoft 680ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .split__title,
+body[data-screen-label="02 Mentett kütyük"] .mast__title,
+body[data-screen-label="02 Alapelveink"] .principles-hero h1 {
+  animation: kmRiseSoft 820ms 90ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .split__lead,
+body[data-screen-label="02 Mentett kütyük"] .mast__lead,
+body[data-screen-label="02 Alapelveink"] .principles-hero__lead {
+  animation: kmRiseSoft 760ms 210ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .split__title em,
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-panel__intro h3 em,
+body[data-screen-label="03 Hírlevél & Javaslat"] .wall__head h3 em,
+body[data-screen-label="02 Mentett kütyük"] .mast__title em,
+body[data-screen-label="02 Mentett kütyük"] .empty__headline em,
+body[data-screen-label="02 Mentett kütyük"] .suggest__head h3 em,
+body[data-screen-label="02 Alapelveink"] .principles-hero h1 em,
+body[data-screen-label="02 Alapelveink"] .manifesto__intro h2 em,
+body[data-screen-label="02 Alapelveink"] .principles-quote h2 em {
+  background-size: 220% 220%;
+  animation: kmGradientFlow 9s ease-in-out infinite;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .split,
+body[data-screen-label="02 Mentett kütyük"] .mast,
+body[data-screen-label="02 Alapelveink"] .principles-hero {
+  position: relative;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .split::after,
+body[data-screen-label="02 Mentett kütyük"] .mast::after,
+body[data-screen-label="02 Alapelveink"] .principles-hero::after {
+  content: '';
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--grad-b), transparent);
+  transform-origin: left;
+  animation: kmLineDraw 1050ms 180ms cubic-bezier(.2,.8,.2,1) both;
+  pointer-events: none;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .q-item {
+  animation: kmSlideSoft 680ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .q-item:nth-child(1) { animation-delay: 260ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .q-item:nth-child(2) { animation-delay: 360ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .q-item:nth-child(3) { animation-delay: 460ms; }
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .q-item .num,
+body[data-screen-label="02 Mentett kütyük"] .item__num,
+body[data-screen-label="02 Alapelveink"] .principle__num {
+  animation: kmTickerGlow 3.8s ease-in-out infinite;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-card,
+body[data-screen-label="02 Mentett kütyük"] .totals__box {
+  overflow: hidden;
+  animation: kmScaleIn 780ms 240ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-card::after,
+body[data-screen-label="02 Mentett kütyük"] .totals__box::after {
+  content: '';
+  position: absolute;
+  inset: -40% auto -40% -35%;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, oklch(0.96 0.008 80 / 0.18), transparent);
+  animation: kmSheen 5.6s 1100ms ease-in-out infinite;
+  pointer-events: none;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-card__tabs,
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-panel__intro,
+body[data-screen-label="03 Hírlevél & Javaslat"] .field,
+body[data-screen-label="03 Hírlevél & Javaslat"] .checks,
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-note,
+body[data-screen-label="03 Hírlevél & Javaslat"] .submit {
+  animation: kmRiseSoft 620ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-card__tabs { animation-delay: 320ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-panel__intro { animation-delay: 390ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .field:nth-of-type(1) { animation-delay: 470ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .field:nth-of-type(2) { animation-delay: 540ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .field:nth-of-type(3) { animation-delay: 610ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .field:nth-child(2) { animation-delay: 470ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .field:nth-child(3) { animation-delay: 540ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .field:nth-child(4) { animation-delay: 610ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .checks { animation-delay: 680ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-note { animation-delay: 730ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .submit { animation-delay: 780ms; }
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .form-card__tabs button.on,
+body[data-screen-label="03 Hírlevél & Javaslat"] .submit button[type=submit] {
+  background-size: 220% 220%;
+  animation: kmGradientFlow 7s ease-in-out infinite;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .field input:focus,
+body[data-screen-label="03 Hírlevél & Javaslat"] .field textarea:focus,
+body[data-screen-label="03 Hírlevél & Javaslat"] .field select:focus {
+  transform: translateY(-2px);
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .submission,
+body[data-screen-label="03 Hírlevél & Javaslat"] .strip__item,
+body[data-screen-label="02 Mentett kütyük"] .sug-card {
+  animation: kmRiseSoft 720ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="03 Hírlevél & Javaslat"] .submission:nth-child(1),
+body[data-screen-label="03 Hírlevél & Javaslat"] .strip__item:nth-child(1),
+body[data-screen-label="02 Mentett kütyük"] .sug-card:nth-child(1) { animation-delay: 80ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .submission:nth-child(2),
+body[data-screen-label="03 Hírlevél & Javaslat"] .strip__item:nth-child(2),
+body[data-screen-label="02 Mentett kütyük"] .sug-card:nth-child(2) { animation-delay: 160ms; }
+body[data-screen-label="03 Hírlevél & Javaslat"] .submission:nth-child(3),
+body[data-screen-label="03 Hírlevél & Javaslat"] .strip__item:nth-child(3),
+body[data-screen-label="02 Mentett kütyük"] .sug-card:nth-child(3) { animation-delay: 240ms; }
+
+body[data-screen-label="02 Mentett kütyük"] .summary,
+body[data-screen-label="02 Mentett kütyük"] .list__head,
+body[data-screen-label="02 Mentett kütyük"] .totals__note,
+body[data-screen-label="02 Mentett kütyük"] .empty,
+body[data-screen-label="02 Mentett kütyük"] .suggest__head {
+  animation: kmRiseSoft 720ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="02 Mentett kütyük"] .summary { animation-delay: 120ms; }
+body[data-screen-label="02 Mentett kütyük"] .list__head { animation-delay: 180ms; }
+body[data-screen-label="02 Mentett kütyük"] .totals__note { animation-delay: 260ms; }
+body[data-screen-label="02 Mentett kütyük"] .empty { animation-delay: 140ms; }
+
+body[data-screen-label="02 Mentett kütyük"] .summary__stat {
+  animation: kmRiseSoft 640ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="02 Mentett kütyük"] .summary__stat:nth-child(1) { animation-delay: 240ms; }
+body[data-screen-label="02 Mentett kütyük"] .summary__stat:nth-child(2) { animation-delay: 320ms; }
+body[data-screen-label="02 Mentett kütyük"] .summary__stat:nth-child(3) { animation-delay: 400ms; }
+
+body[data-screen-label="02 Mentett kütyük"] .item {
+  animation: kmSlideSoft 620ms cubic-bezier(.2,.8,.2,1) both;
+  transform-origin: left center;
+}
+
+body[data-screen-label="02 Mentett kütyük"] .item:nth-child(1) { animation-delay: 120ms; }
+body[data-screen-label="02 Mentett kütyük"] .item:nth-child(2) { animation-delay: 190ms; }
+body[data-screen-label="02 Mentett kütyük"] .item:nth-child(3) { animation-delay: 260ms; }
+body[data-screen-label="02 Mentett kütyük"] .item:nth-child(4) { animation-delay: 330ms; }
+body[data-screen-label="02 Mentett kütyük"] .item:nth-child(5) { animation-delay: 400ms; }
+body[data-screen-label="02 Mentett kütyük"] .item:hover {
+  transform: translateX(8px);
+}
+
+body[data-screen-label="02 Mentett kütyük"] .item__ph,
+body[data-screen-label="02 Mentett kütyük"] .empty__art {
+  transition: transform 320ms cubic-bezier(.2,.8,.2,1), border-color 320ms ease;
+}
+
+body[data-screen-label="02 Mentett kütyük"] .item:hover .item__ph,
+body[data-screen-label="02 Mentett kütyük"] .empty__art:hover {
+  transform: scale(1.035) rotate(-1deg);
+}
+
+body[data-screen-label="02 Mentett kütyük"] .empty__art svg {
+  animation: kmFloatTiny 4s ease-in-out infinite;
+}
+
+body[data-screen-label="02 Alapelveink"] .manifesto__intro,
+body[data-screen-label="02 Alapelveink"] .principles-actions,
+body[data-screen-label="02 Alapelveink"] .principles-quote {
+  animation: kmRiseSoft 760ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="02 Alapelveink"] .manifesto__intro { animation-delay: 120ms; }
+body[data-screen-label="02 Alapelveink"] .principles-actions { animation-delay: 260ms; }
+body[data-screen-label="02 Alapelveink"] .principles-quote { animation-delay: 180ms; }
+
+body[data-screen-label="02 Alapelveink"] .principle {
+  position: relative;
+  overflow: hidden;
+  animation: kmSlideSoft 720ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(1) { animation-delay: 160ms; }
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(2) { animation-delay: 240ms; }
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(3) { animation-delay: 320ms; }
+body[data-screen-label="02 Alapelveink"] .principle:nth-child(4) { animation-delay: 400ms; }
+
+body[data-screen-label="02 Alapelveink"] .principle::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 360ms cubic-bezier(.2,.8,.2,1);
+}
+
+body[data-screen-label="02 Alapelveink"] .principle:hover::before,
+body[data-screen-label="02 Alapelveink"] .principle.open::before {
+  transform: scaleX(1);
+}
+
+body[data-screen-label="02 Alapelveink"] .principle__plus {
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1), color 260ms ease;
+}
+
+body[data-screen-label="02 Alapelveink"] .principle:hover .principle__plus,
+body[data-screen-label="02 Alapelveink"] .principle.open .principle__plus {
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+body[data-screen-label="02 Alapelveink"] .principle.open .principle__body {
+  animation: kmRiseSoft 420ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+body[data-screen-label="02 Alapelveink"] .principles-quote h2 {
+  animation: kmRiseSoft 800ms 160ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-screen-label="03 Hírlevél & Javaslat"] *,
+  body[data-screen-label="02 Mentett kütyük"] *,
+  body[data-screen-label="02 Alapelveink"] * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body[data-screen-label="03 Hírlevél & Javaslat"] .form-card::after,
+  body[data-screen-label="02 Mentett kütyük"] .totals__box::after,
+  body[data-screen-label="03 Hírlevél & Javaslat"] .split::after,
+  body[data-screen-label="02 Mentett kütyük"] .mast::after,
+  body[data-screen-label="02 Alapelveink"] .principles-hero::after {
+    display: none !important;
+  }
+}
