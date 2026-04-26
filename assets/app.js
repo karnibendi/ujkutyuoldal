@@ -1,4 +1,4 @@
-/* ==========================================================================
+/* ============================================================================
    KÜTYÜ MŰHELY — shared client logic
    - saved items (localStorage)
    - reveal-on-scroll
@@ -138,6 +138,20 @@
     form.reportValidity();
     toast('Hiányzik valami · nézd át a kötelező mezőket');
   }, true);
+
+  // Copy polish: keep the product and newsletter phrasing elevated.
+  document.addEventListener('DOMContentLoaded', () => {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let node = walker.nextNode();
+    while (node) {
+      if (node.nodeValue.includes('Miért hülye?')) nodes.push(node);
+      node = walker.nextNode();
+    }
+    nodes.forEach(textNode => {
+      textNode.nodeValue = textNode.nodeValue.replaceAll('Miért hülye?', 'Miért abszurd?');
+    });
+  });
 
   // Replace the native confirm dialog on the wishlist with an in-page two-click
   // confirmation that keeps the editorial feel intact.
