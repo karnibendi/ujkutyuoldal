@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="hu">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kütyű Műhely — Kollekció 2026</title>
+<title>Gadget Atelier — Collection 2026</title>
 <link rel="stylesheet" href="assets/system.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='80' font-family='serif'%3EK%3C/text%3E%3C/svg%3E" />
 <style>
@@ -896,7 +896,7 @@
 .tweak-pill.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 </style>
 </head>
-<body data-screen-label="01 Főoldal">
+<body data-screen-label="01 Home">
 
 <!-- Ticker -->
 <div class="ticker" aria-hidden="true">
@@ -920,22 +920,22 @@
   <div class="shell nav__inner">
     <div class="nav__brand">
       <span class="nav__brand-mark">Est. 2026</span>
-      <span>Kütyű Műhely</span>
+      <span>Gadget Atelier</span>
     </div>
-    <nav class="nav__center" aria-label="Főmenü">
-      <a href="index.html" aria-current="page">Főoldal</a>
-      <a href="#kollekciok">Kollekciók</a>
-      <a href="#manifesto">Kiáltvány</a>
-      <a href="mentett.html">Mentett kütyűk</a>
-      <a href="hirlevel.html">Hírlevél</a>
+    <nav class="nav__center" aria-label="Main menu">
+      <a href="index-en.html" aria-current="page">Home</a>
+      <a href="#kollekciok">Collections</a>
+      <a href="#manifesto">Manifesto</a>
+      <a href="mentett-en.html">Mentett kütyűk</a>
+      <a href="hirlevel-en.html">Newsletter</a>
     </nav>
     <div class="nav__right">
-      <span class="nav__lang"><strong><a href="index.html" class="nav__lang-link is-active" aria-current="true" lang="hu">HU</a></strong> / <a href="index-en.html" class="nav__lang-link" lang="en">EN</a></span>
-      <a href="mentett.html" class="nav__saved">
+      <span class="nav__lang"><a href="index.html" class="nav__lang-link" lang="hu">HU</a> / <strong><a href="index-en.html" class="nav__lang-link is-active" aria-current="true" lang="en">EN</a></strong></span>
+      <a href="mentett-en.html" class="nav__saved">
         Mentett
         <span class="nav__saved-count" data-saved-count>00</span>
       </a>
-      <button class="nav__burger" aria-label="Menü"></button>
+      <button class="nav__burger" aria-label="Menu"></button>
     </div>
   </div>
 </header>
@@ -983,7 +983,7 @@
 <section class="manifesto shell" id="manifesto">
   <div class="manifesto__intro">
     <div>
-      <span class="kicker">№ 02 · Kiáltvány</span>
+      <span class="kicker">№ 02 · Manifesto</span>
       <h2>Miért beszélünk <em>úgy</em> egy spagetti mérőről, mintha egy svájci órát mutatnánk be?</h2>
     </div>
     <p>Hét olvasóból hat úgy gondolja, hogy a szükségletet a termék hozza létre. A hetedik már vett egy pizza ollót. Ezek a mi alapelveink.</p>
@@ -1052,11 +1052,11 @@
   <span class="kicker">№ 05 · Záró jegyzet</span>
   <h2 class="reveal">Nem kell megvenned. De már <em>érted</em> a rendszert.</h2>
   <div class="final-cta__actions">
-    <a href="hirlevel.html" class="btn btn--solid">Hírlevél + termékjavaslat<span class="arrow"></span></a>
-    <a href="mentett.html" class="btn btn--ghost">Mentett kütyűk megnyitása<span class="arrow"></span></a>
+    <a href="hirlevel-en.html" class="btn btn--solid">Newsletter + termékjavaslat<span class="arrow"></span></a>
+    <a href="mentett-en.html" class="btn btn--ghost">Mentett kütyűk megnyitása<span class="arrow"></span></a>
   </div>
   <div class="final-cta__meta">
-    <span>Kütyű Műhely · Vol. IV · Budapest</span>
+    <span>Gadget Atelier · Vol. IV · Budapest</span>
     <span>Next drop — 2026/Nyár</span>
   </div>
 </section>
@@ -1070,15 +1070,15 @@
         <p class="foot__tag">Prémium szemlélet, megkérdőjelezhető termékek. Egy iskolai projekt, amely komolyabban veszi magát a kelleténél.</p>
       </div>
       <div class="foot__col">
-        <h4>Oldalak</h4>
+        <h4>Pages</h4>
         <ul>
-          <li><a href="index.html">Főoldal</a></li>
-          <li><a href="mentett.html">Mentett kütyűk</a></li>
-          <li><a href="hirlevel.html">Hírlevél</a></li>
+          <li><a href="index-en.html">Home</a></li>
+          <li><a href="mentett-en.html">Mentett kütyűk</a></li>
+          <li><a href="hirlevel-en.html">Newsletter</a></li>
         </ul>
       </div>
       <div class="foot__col">
-        <h4>Kollekciók</h4>
+        <h4>Collections</h4>
         <ul>
           <li><a href="#konyhai">Konyha</a></li>
           <li><a href="#furdoszobai">Fürdőszoba</a></li>
@@ -1096,7 +1096,7 @@
       </div>
     </div>
     <div class="foot__bottom">
-      <span>© 2026 Kütyű Műhely</span>
+      <span>© 2026 Gadget Atelier</span>
       <em>Készült Reacttel, iróniával és egy csésze feketével.</em>
       <span>Vol. IV · 04 / 2026</span>
     </div>
@@ -1261,7 +1261,7 @@ function refreshSaveButtons() {
     const slug = btn.dataset.slug;
     const saved = KutyuStore.has(slug);
     btn.classList.toggle('saved', saved);
-    btn.querySelector('.label').textContent = saved ? 'Mentve' : 'Mentés';
+    btn.querySelector('.label').textContent = saved ? 'Saved' : 'Mentés';
   });
 }
 document.addEventListener('click', (e) => {
@@ -1365,7 +1365,7 @@ const dCard = document.getElementById('details-card');
 function openDetails(slug) {
   const g = GADGET_INDEX[slug];
   if (!g) return;
-  const life = LIFE_STORIES[slug] || { title: 'Életet megváltó történet hamarosan…', story: '<p>A szerkesztőség még gyűjti a vallomásokat.</p>', sig: '— Kütyü Műhely szerkesztőség' };
+  const life = LIFE_STORIES[slug] || { title: 'Életet megváltó történet hamarosan…', story: '<p>A szerkesztőség még gyűjti a vallomásokat.</p>', sig: '— Gadget Atelier szerkesztőség' };
   document.getElementById('d-eyebrow').textContent = `${g.colNumber} · ${g.colTitle}`;
   document.getElementById('d-title').innerHTML = g.name;
   document.getElementById('d-slogan').textContent = g.slogan;

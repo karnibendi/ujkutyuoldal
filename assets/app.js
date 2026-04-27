@@ -8,6 +8,40 @@
 
 (function () {
   const SAVED_KEY = 'kutyu.saved.v1';
+  const isEnglish = document.documentElement.lang?.toLowerCase().startsWith('en');
+  const i18n = {
+    city: isEnglish ? 'Budapest, Atrium studio' : 'Budapest, Átrium studio',
+    updated: isEnglish ? 'Updated: 2026-04-20' : 'Frissítve: 2026.04.20.',
+    heroTitleA: isEnglish ? 'Gadgets' : 'Kütyük',
+    heroTitleB: isEnglish ? 'you never knew' : 'amikről nem tudtad,',
+    heroTitleC: isEnglish ? 'you needed' : 'hogy kellenek',
+    heroLabel: isEnglish ? 'Editorial introduction' : 'Szerkesztőségi bevezető',
+    heroLead: isEnglish
+      ? 'Thirteen objectively unnecessary tools. Thirteen lifestyle shifts that last forever. One website taking itself way too seriously.'
+      : 'Tizenhárom objektíven felesleges eszköz. Tizenhárom életen át tartó életmódváltás. Egy weboldal, amely kétségbeesetten komolyan veszi önmagát.',
+    heroSig: isEnglish ? '— THE EDITORIAL TEAM' : '— A SZERKESZTŐSÉG',
+    principles: isEnglish ? 'Principles' : 'Alapelveink',
+    pages: isEnglish ? 'Pages' : 'Oldalak',
+    noteNewsletter: isEnglish
+      ? 'Demo form: no external data transfer, no real subscription. Feedback happens locally.'
+      : 'Demo űrlap: nincs külső adatküldés, nincs valódi feliratkozás. A visszajelzés helyben születik.',
+    noteSuggest: isEnglish
+      ? 'Suggestions stay in this browser only. No real submission, just a premium illusion.'
+      : 'A javaslat csak ebben a böngészőben kerül a falra. Nincs valódi beküldés, csak prémium illúzió.',
+    required: isEnglish
+      ? 'Something is missing · please check the required fields'
+      : 'Hiányzik valami · nézd át a kötelező mezőket',
+    clearConfirm: isEnglish
+      ? 'Confirm clearing · click once more'
+      : 'Törlés megerősítése · kattints még egyszer',
+    clearButtonArmed: isEnglish
+      ? 'One more click and the list is empty<span class="arrow"></span>'
+      : 'Még egy kattintás, és üres a lista<span class="arrow"></span>',
+    clearButtonIdle: isEnglish
+      ? 'Remove all<span class="arrow"></span>'
+      : 'Mindet eltávolít<span class="arrow"></span>',
+    clearDone: isEnglish ? 'Wishlist cleared' : 'A kívánságlista kiürítve',
+  };
 
   window.KutyuStore = {
     get() {
@@ -132,21 +166,21 @@
     section.setAttribute('aria-labelledby', 'home-hero-title');
     section.innerHTML = `
       <div class="hero__meta">
-        <span>№ 01 · Masthead</span>
+          <span>№ 01 · Masthead</span>
         <div class="hero__meta-right">
-          <span>Budapest, Átrium studio</span>
-          <span>Frissítve: 2026.04.20.</span>
+          <span>${i18n.city}</span>
+          <span>${i18n.updated}</span>
         </div>
       </div>
       <div class="hero__grid">
         <div class="hero__head">
           <h1 class="hero__title" id="home-hero-title">
-            <span class="hero__title-word"><span>Kütyük</span></span>
-            <span class="hero__title-word italic"><span>amikről nem tudtad,</span></span>
-            <span class="hero__title-word"><span>hogy kellenek</span></span>
+            <span class="hero__title-word"><span>${i18n.heroTitleA}</span></span>
+            <span class="hero__title-word italic"><span>${i18n.heroTitleB}</span></span>
+            <span class="hero__title-word"><span>${i18n.heroTitleC}</span></span>
           </h1>
-          <aside class="hero__pull" aria-label="Szerkesztőségi bevezető">
-            <p style="color: var(--ink-mute); font-size: clamp(15px, 1.35vw, 17px); line-height: 1.42;">Tizenhárom objektíven felesleges eszköz. Tizenhárom életen át tartó életmódváltás. Egy weboldal, amely kétségbeesetten komolyan veszi önmagát.<em style="color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.22em;">— A SZERKESZTŐSÉG</em></p>
+          <aside class="hero__pull" aria-label="${i18n.heroLabel}">
+            <p style="color: var(--ink-mute); font-size: clamp(15px, 1.35vw, 17px); line-height: 1.42;">${i18n.heroLead}<em style="color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.22em;">${i18n.heroSig}</em></p>
           </aside>
         </div>
       </div>
@@ -157,25 +191,29 @@
   // Static-export routing polish: keep the full principles page separate, while
   // the home page opens with the editorial masthead before the collections.
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('a[href="#manifesto"], a[href="index.html#manifesto"]').forEach(link => {
-      link.setAttribute('href', 'alapelveink.html');
-      if (link.textContent.trim() === 'Kiáltvány') link.textContent = 'Alapelveink';
+    const principlesHref = isEnglish ? 'alapelveink-en.html' : 'alapelveink.html';
+    const homeHref = isEnglish ? 'index-en.html' : 'index.html';
+    document.querySelectorAll('a[href="#manifesto"], a[href="index.html#manifesto"], a[href="index-en.html#manifesto"]').forEach(link => {
+      link.setAttribute('href', principlesHref);
+      if (link.textContent.trim() === 'Kiáltvány' || link.textContent.trim() === 'Manifesto') {
+        link.textContent = i18n.principles;
+      }
     });
 
     document.querySelectorAll('.foot__col').forEach(col => {
-      if (col.querySelector('h4')?.textContent.trim() !== 'Oldalak') return;
-      if (col.querySelector('a[href="alapelveink.html"]')) return;
-      const home = col.querySelector('a[href="index.html"]')?.closest('li');
+      if (col.querySelector('h4')?.textContent.trim() !== i18n.pages) return;
+      if (col.querySelector(`a[href="${principlesHref}"]`)) return;
+      const home = col.querySelector(`a[href="${homeHref}"]`)?.closest('li');
       if (!home) return;
       const item = document.createElement('li');
       const link = document.createElement('a');
-      link.href = 'alapelveink.html';
-      link.textContent = 'Alapelveink';
+      link.href = principlesHref;
+      link.textContent = i18n.principles;
       item.append(link);
       home.after(item);
     });
 
-    const isHome = document.body?.dataset.screenLabel === '01 Főoldal';
+    const isHome = document.body?.dataset.screenLabel === '01 Főoldal' || document.body?.dataset.screenLabel === '01 Home';
     if (!isHome) return;
     document.querySelector('.home-principle')?.remove();
     document.querySelector('.manifesto')?.remove();
@@ -191,7 +229,7 @@
     if (newsletter && !newsletter.querySelector('.form-note')) {
       const note = document.createElement('p');
       note.className = 'form-note';
-      note.textContent = 'Demo űrlap: nincs külső adatküldés, nincs valódi feliratkozás. A visszajelzés helyben születik.';
+      note.textContent = i18n.noteNewsletter;
       newsletter.querySelector('.submit')?.before(note);
     }
 
@@ -199,7 +237,7 @@
     if (suggest && !suggest.querySelector('.form-note')) {
       const note = document.createElement('p');
       note.className = 'form-note';
-      note.textContent = 'A javaslat csak ebben a böngészőben kerül a falra. Nincs valódi beküldés, csak prémium illúzió.';
+      note.textContent = i18n.noteSuggest;
       suggest.querySelector('.submit')?.before(note);
     }
   });
@@ -213,7 +251,7 @@
     e.preventDefault();
     e.stopImmediatePropagation();
     form.reportValidity();
-    toast('Hiányzik valami · nézd át a kötelező mezőket');
+    toast(i18n.required);
   }, true);
 
   // Copy polish: keep the product and newsletter phrasing elevated.
@@ -260,12 +298,12 @@
     if (!clearArmed) {
       clearArmed = true;
       clearBtn.classList.add('confirming');
-      clearBtn.innerHTML = 'Még egy kattintás, és üres a lista<span class="arrow"></span>';
-      toast('Törlés megerősítése · kattints még egyszer');
+      clearBtn.innerHTML = i18n.clearButtonArmed;
+      toast(i18n.clearConfirm);
       clearTimer = setTimeout(() => {
         clearArmed = false;
         clearBtn.classList.remove('confirming');
-        clearBtn.innerHTML = 'Mindet eltávolít<span class="arrow"></span>';
+        clearBtn.innerHTML = i18n.clearButtonIdle;
       }, 3600);
       return;
     }
@@ -273,7 +311,7 @@
     clearTimeout(clearTimer);
     clearArmed = false;
     KutyuStore.clear();
-    toast('A kívánságlista kiürítve');
+    toast(i18n.clearDone);
   }, true);
 
   // Details modal focus polish, layered over the page-specific modal code.
