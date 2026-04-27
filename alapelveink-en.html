@@ -7,6 +7,16 @@
 <link rel="stylesheet" href="assets/system.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='80' font-family='serif'%3EK%3C/text%3E%3C/svg%3E" />
 <style>
+body {
+  --paper: oklch(0.13 0.012 80);
+  --paper-2: oklch(0.19 0.012 80);
+  --ink: oklch(0.93 0.008 80);
+  --ink-soft: oklch(0.79 0.008 80);
+  --ink-mute: oklch(0.62 0.008 80);
+  --rule: oklch(0.92 0.008 80 / 0.18);
+  --rule-soft: oklch(0.92 0.008 80 / 0.10);
+}
+
 .principles-hero {
   padding: clamp(56px, 9vw, 116px) 0 clamp(48px, 7vw, 88px);
   border-bottom: 1px solid var(--rule);
@@ -221,6 +231,29 @@
   gap: 18px;
   padding-top: clamp(44px, 6vw, 72px);
 }
+
+.principles-hero__grid > * {
+  animation: fade-up 620ms cubic-bezier(.2,.7,.2,1) both;
+}
+.principles-hero__grid > *:nth-child(2) { animation-delay: 90ms; }
+.manifesto__intro {
+  animation: fade-up 620ms cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: 120ms;
+}
+.manifesto__list .principle { animation: fade-up 620ms cubic-bezier(.2,.7,.2,1) both; }
+.manifesto__list .principle:nth-child(2) { animation-delay: 80ms; }
+.manifesto__list .principle:nth-child(3) { animation-delay: 140ms; }
+.manifesto__list .principle:nth-child(4) { animation-delay: 200ms; }
+.principles-quote__cite {
+  animation: fade-up 620ms cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: 120ms;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 840px) {
   .principles-hero__grid,
   .manifesto__intro {
