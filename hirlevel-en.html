@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="hu">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kütyű Műhely — Hírlevél & Termékjavaslat</title>
+<title>Gadget Atelier — Newsletter & Suggestion</title>
 <link rel="stylesheet" href="assets/system.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='80' font-family='serif'%3EK%3C/text%3E%3C/svg%3E" />
 <style>
@@ -410,28 +410,28 @@ body::after {
 @media (max-width: 820px) { .strip__inner { grid-template-columns: 1fr; gap: 40px; } }
 </style>
 </head>
-<body data-screen-label="03 Hírlevél & Javaslat">
+<body data-screen-label="03 Newsletter & Suggestion">
 
 <header class="nav">
   <div class="shell nav__inner">
     <div class="nav__brand">
       <span class="nav__brand-mark">Est. 2026</span>
-      <span>Kütyű Műhely</span>
+      <span>Gadget Atelier</span>
     </div>
-    <nav class="nav__center" aria-label="Főmenü">
-      <a href="index.html">Főoldal</a>
-      <a href="index.html#kollekciok">Kollekciók</a>
-      <a href="index.html#manifesto">Kiáltvány</a>
-      <a href="mentett.html">Mentett kütyűk</a>
-      <a href="hirlevel.html" aria-current="page">Hírlevél</a>
+    <nav class="nav__center" aria-label="Main menu">
+      <a href="index-en.html">Home</a>
+      <a href="index-en.html#kollekciok">Collections</a>
+      <a href="index-en.html#manifesto">Manifesto</a>
+      <a href="mentett-en.html">Saved gadgets</a>
+      <a href="hirlevel-en.html" aria-current="page">Newsletter</a>
     </nav>
     <div class="nav__right">
-      <span class="nav__lang"><strong><a href="hirlevel.html" class="nav__lang-link is-active" aria-current="true" lang="hu">HU</a></strong> / <a href="hirlevel-en.html" class="nav__lang-link" lang="en">EN</a></span>
-      <a href="mentett.html" class="nav__saved">
-        Mentett
+      <span class="nav__lang"><a href="hirlevel.html" class="nav__lang-link" lang="hu">HU</a> / <strong><a href="hirlevel-en.html" class="nav__lang-link is-active" aria-current="true" lang="en">EN</a></strong></span>
+      <a href="mentett-en.html" class="nav__saved">
+        Saved
         <span class="nav__saved-count" data-saved-count>00</span>
       </a>
-      <button class="nav__burger" aria-label="Menü"></button>
+      <button class="nav__burger" aria-label="Menu"></button>
     </div>
   </div>
 </header>
@@ -441,31 +441,31 @@ body::after {
   <div>
     <div class="split__meta">
       <span>№ 03 · Bulletin</span>
-      <span>Havonta egyszer · max.</span>
+      <span>Monthly once · max.</span>
     </div>
-    <h1 class="split__title">Iratkozz fel, <em>vagy javasolj</em> egy kütyűt.</h1>
-    <p class="split__lead">A hírlevelünk havonta egyszer érkezik, és csak olyan tárgyakról ír, amelyek valamilyen módon <em>feleslegesek, de megmagyarázhatók.</em> Ha ismersz ilyet — küldd be.</p>
+    <h1 class="split__title">Subscribe, <em>or suggest</em> a gadget.</h1>
+    <p class="split__lead">Our newsletter arrives once a month and covers objects that are <em>unnecessary but defensible.</em> If you know one, send it in.</p>
 
     <div class="split__quotes">
       <div class="q-item">
         <span class="num">01</span>
         <div>
-          <q>A hírlevelük az egyetlen, amit nem töröltem reflexből. Mert nevettem.</q>
-          <footer>— Dóra, grafikus</footer>
+          <q>Their newsletter is the only one I did not delete by reflex. I laughed.</q>
+          <footer>— Dora, graphic designer</footer>
         </div>
       </div>
       <div class="q-item">
         <span class="num">02</span>
         <div>
-          <q>A pizza olló-ajánlás után két nap alatt megrendeltem. Bocsánat.</q>
-          <footer>— Péter, mérnök</footer>
+          <q>After the pizza-scissors recommendation, I ordered one in two days. Sorry.</q>
+          <footer>— Peter, engineer</footer>
         </div>
       </div>
       <div class="q-item">
         <span class="num">03</span>
         <div>
-          <q>Beküldtem egy ötletet (agyi fogmosó), hat hét múlva benne volt a hírlevélben. Siker.</q>
-          <footer>— N., fogorvos, névtelen</footer>
+          <q>I submitted an idea (brain-powered toothbrush) and six weeks later it appeared in the newsletter. Success.</q>
+          <footer>— N., dentist, anonymous</footer>
         </div>
       </div>
     </div>
@@ -475,81 +475,81 @@ body::after {
     <div class="form-card">
       <div class="form-card__tabs" role="tablist">
         <button class="on" data-tab="newsletter" role="tab" aria-selected="true">
-          <span class="tab-num">i.</span> Hírlevél
+          <span class="tab-num">i.</span> Newsletter
         </button>
         <button data-tab="suggest" role="tab" aria-selected="false">
-          <span class="tab-num">ii.</span> Javaslat
+          <span class="tab-num">ii.</span> Suggestion
         </button>
       </div>
 
       <!-- Newsletter form -->
       <form id="newsletter-form" class="form-panel" data-panel="newsletter" novalidate>
         <div class="form-panel__intro">
-          <h3>Havi <em>egy</em> kütyü. Beléd kell.</h3>
-          <p>Két mező, egy igén. Nincs spam, nincs ajánlatdoboz.</p>
+          <h3>One <em>gadget</em> per month. You will want it.</h3>
+          <p>Two fields, one yes. No spam, no offer clutter.</p>
         </div>
         <div class="field">
-          <label for="nl-name">Név <span class="req">*</span></label>
-          <input id="nl-name" name="name" type="text" placeholder="Kovács Anna" required />
+          <label for="nl-name">Name <span class="req">*</span></label>
+          <input id="nl-name" name="name" type="text" placeholder="Anna Kovacs" required />
         </div>
         <div class="field">
           <label for="nl-email">E-mail <span class="req">*</span></label>
-          <input id="nl-email" name="email" type="email" placeholder="anna@pelda.hu" required />
+          <input id="nl-email" name="email" type="email" placeholder="anna@example.com" required />
         </div>
         <div class="checks">
           <label class="check">
             <input type="checkbox" id="nl-terms" required />
             <span class="box"></span>
-            <span><strong>Elfogadom a szatíra-szabályzatot.</strong>A hírlevél 100%-a irónia. Egy leiratkozás, egy kattintás.</span>
+            <span><strong>I accept the satire policy.</strong>The newsletter is 100% irony. One-click unsubscribe.</span>
           </label>
         </div>
         <div class="submit">
-          <button type="submit" class="btn btn--solid">Feliratkozás<span class="arrow"></span></button>
+          <button type="submit" class="btn btn--solid">Subscribe<span class="arrow"></span></button>
         </div>
       </form>
 
       <!-- Suggestion form -->
       <form id="suggest-form" class="form-panel" data-panel="suggest" style="display:none" novalidate>
         <div class="form-panel__intro">
-          <h3>A következő <em>kütyü</em> lehet a tiéd.</h3>
-          <p>Egy név, egy mondat. A szerkesztőség két hét alatt válaszol.</p>
+          <h3>The next <em>gadget</em> could be yours.</h3>
+          <p>One name, one sentence. The editorial team replies within two weeks.</p>
         </div>
         <div class="field">
-          <label for="sg-name">A kütyü neve <span class="req">*</span></label>
-          <input id="sg-name" type="text" placeholder="Okos sótartó" required />
+          <label for="sg-name">Gadget name <span class="req">*</span></label>
+          <input id="sg-name" type="text" placeholder="Smart salt shaker" required />
         </div>
         <div class="field">
-          <label for="sg-what">Mi ez, egy mondatban? <span class="req">*</span></label>
-          <textarea id="sg-what" placeholder="Egy só-adagoló, ami méri, mennyit tettél az ételbe." required></textarea>
+          <label for="sg-what">What is it in one sentence? <span class="req">*</span></label>
+          <textarea id="sg-what" placeholder="A salt dispenser that measures how much you added to food." required></textarea>
         </div>
         <div class="field">
-          <label for="sg-email">E-mail <span style="opacity:.5">(opcionális)</span></label>
-          <input id="sg-email" type="email" placeholder="anna@pelda.hu" />
+          <label for="sg-email">Email <span style="opacity:.5">(optional)</span></label>
+          <input id="sg-email" type="email" placeholder="anna@example.com" />
         </div>
         <div class="checks">
           <label class="check">
             <input type="checkbox" id="sg-serious" required />
             <span class="box"></span>
-            <span><strong>Komolyan írtam, viccnek szántam.</strong>Ha bekerül, a szerkesztőség jóvá teszi.</span>
+            <span><strong>I wrote this seriously, intended as a joke.</strong>If selected, the editorial team will make it right.</span>
           </label>
         </div>
         <div class="submit">
-          <button type="submit" class="btn btn--solid">Javaslat beküldése<span class="arrow"></span></button>
+          <button type="submit" class="btn btn--solid">Send suggestion<span class="arrow"></span></button>
         </div>
       </form>
 
       <!-- Thank you -->
       <div class="thankyou" id="thankyou">
-        <span class="kicker">Megérkezett</span>
-        <h3 id="ty-title"><em>Köszönjük.</em><br/>Rád számítunk.</h3>
-        <p id="ty-body">A megerősítő e-mail pillanatok alatt megérkezik. Állítólag. A szerkesztőség visszaolvasta. Kétszer.</p>
+        <span class="kicker">Received</span>
+        <h3 id="ty-title"><em>Thank you.</em><br/>We are counting on you.</h3>
+        <p id="ty-body">The confirmation email should arrive in moments. Allegedly. The editorial team proofread it twice.</p>
         <div class="thankyou__code">
-          <span>Hivatkozási szám</span>
+          <span>Reference number</span>
           <strong id="ty-ref">KM-2026-00123</strong>
         </div>
         <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <button class="btn btn--ghost" id="ty-again">Új beküldés<span class="arrow"></span></button>
-          <a href="index.html" class="btn">Vissza a főoldalra<span class="arrow"></span></a>
+          <button class="btn btn--ghost" id="ty-again">New submission<span class="arrow"></span></button>
+          <a href="index-en.html" class="btn">Back to home<span class="arrow"></span></a>
         </div>
       </div>
     </div>
@@ -561,18 +561,18 @@ body::after {
   <div class="shell strip__inner">
     <div class="strip__item">
       <span class="num">01</span>
-      <h4>Egyetlen <em>kütyü</em>, havonta.</h4>
-      <p>Nem lista. Nem heti összefoglaló. Egyetlen tárgy, három szemszögből: „Mi ez?", „Miért hülye?", „Miért zseni?".</p>
+      <h4>One <em>gadget</em> per month.</h4>
+      <p>Not a list. Not a weekly digest. One object, three angles: “What is it?”, “Why absurd?”, “Why genius?”.</p>
     </div>
     <div class="strip__item">
       <span class="num">02</span>
-      <h4>Kulisszatitkok — <em>a dizájner feljegyzései.</em></h4>
-      <p>Hogy miért pont 14 990 forint. Hogy miért olasz dőlt. Hogy mi nem került be a katalógusba (és miért).</p>
+      <h4>Behind the scenes — <em>designer notes.</em></h4>
+      <p>Why 14,990 HUF. Why italic. What did not make the catalog (and why).</p>
     </div>
     <div class="strip__item">
       <span class="num">03</span>
-      <h4>Olvasói válogatás — <em>a te javaslataid.</em></h4>
-      <p>Minden hírlevélben beteszünk egy olvasói beküldést. Kommentárral. Csak komolyan. Csak iróniával.</p>
+      <h4>Reader picks — <em>your suggestions.</em></h4>
+      <p>Each newsletter includes one reader submission, with commentary. Fully serious. Fully ironic.</p>
     </div>
   </div>
 </section>
@@ -581,10 +581,10 @@ body::after {
 <section class="wall">
   <div class="wall__head">
     <div>
-      <span class="kicker">Olvasói fal · moderált</span>
-      <h3>Amit <em>mások</em> javasoltak.</h3>
+      <span class="kicker">Reader wall · moderated</span>
+      <h3>What <em>others</em> suggested.</h3>
     </div>
-    <span class="eyebrow">Élő stream</span>
+    <span class="eyebrow">Live stream</span>
   </div>
   <div class="wall__grid" id="wall-grid"></div>
 </section>
@@ -595,38 +595,38 @@ body::after {
   <div class="shell">
     <div class="foot__grid">
       <div class="foot__col foot__brand">
-        <p class="foot__brand-name">Kütyű <em>Műhely</em></p>
-        <p class="foot__tag">Prémium szemlélet, megkérdőjelezhető termékek. Egy iskolai projekt, amely komolyabban veszi magát a kelleténél.</p>
+        <p class="foot__brand-name">Gadget <em>Atelier</em></p>
+        <p class="foot__tag">Premium mindset, questionable products. A school project taking itself far too seriously.</p>
       </div>
       <div class="foot__col">
-        <h4>Oldalak</h4>
+        <h4>Pages</h4>
         <ul>
-          <li><a href="index.html">Főoldal</a></li>
-          <li><a href="mentett.html">Mentett kütyűk</a></li>
-          <li><a href="hirlevel.html">Hírlevél</a></li>
+          <li><a href="index-en.html">Home</a></li>
+          <li><a href="mentett-en.html">Saved gadgets</a></li>
+          <li><a href="hirlevel-en.html">Newsletter</a></li>
         </ul>
       </div>
       <div class="foot__col">
-        <h4>Kollekciók</h4>
+        <h4>Collections</h4>
         <ul>
-          <li><a href="index.html#konyhai">Konyha</a></li>
-          <li><a href="index.html#furdoszobai">Fürdőszoba</a></li>
-          <li><a href="index.html#eletmento">Mindennapok</a></li>
-          <li><a href="index.html#iroda">Fókusz</a></li>
+          <li><a href="index-en.html#konyhai">Kitchen</a></li>
+          <li><a href="index-en.html#furdoszobai">Bathroom</a></li>
+          <li><a href="index-en.html#eletmento">Everyday</a></li>
+          <li><a href="index-en.html#iroda">Focus</a></li>
         </ul>
       </div>
       <div class="foot__col">
-        <h4>Jogi bekezdés</h4>
+        <h4>Legal notes</h4>
         <ul>
-          <li>Szatíra, semmi más.</li>
-          <li>A hírlevél soha nem spam.</li>
-          <li>Leiratkozás 1 kattintás.</li>
+          <li>Satire, nothing else.</li>
+          <li>This newsletter is never spam.</li>
+          <li>Unsubscribe in one click.</li>
         </ul>
       </div>
     </div>
     <div class="foot__bottom">
-      <span>© 2026 Kütyű Műhely</span>
-      <em>Készült Reacttel, iróniával és egy csésze feketével.</em>
+      <span>© 2026 Gadget Atelier</span>
+      <em>Built with React, irony, and one cup of black coffee.</em>
       <span>Vol. IV · 04 / 2026</span>
     </div>
   </div>
@@ -656,11 +656,11 @@ function showThanks(kind, refBase) {
   const ref = `KM-2026-${String(refBase).padStart(5, '0')}`;
   document.getElementById('ty-ref').textContent = ref;
   if (kind === 'newsletter') {
-    document.getElementById('ty-title').innerHTML = '<em>Köszönjük.</em><br/>Mostantól rád számítunk.';
-    document.getElementById('ty-body').textContent = 'A megerősítő e-mail pillanatok alatt megérkezik. Állítólag. A szerkesztőség visszaolvasta. Kétszer.';
+    document.getElementById('ty-title').innerHTML = '<em>Thank you.</em><br/>We are counting on you from now on.';
+    document.getElementById('ty-body').textContent = 'The confirmation email should arrive in moments. Allegedly. The editorial team proofread it twice.';
   } else {
-    document.getElementById('ty-title').innerHTML = '<em>Beérkezett.</em><br/>A szerkesztőség olvas.';
-    document.getElementById('ty-body').textContent = 'Két hét a vizsgálat. Ha megfelel, bekerül a következő hírlevélbe — a te neveddel vagy anélkül, ahogy kéred.';
+    document.getElementById('ty-title').innerHTML = '<em>Received.</em><br/>The editorial team is reading.';
+    document.getElementById('ty-body').textContent = 'Review takes about two weeks. If approved, it goes into the next newsletter — with your name or anonymously.';
   }
   panels.forEach(p => p.style.display = 'none');
   ty.classList.add('show');
@@ -680,26 +680,26 @@ document.getElementById('newsletter-form').addEventListener('submit', (e) => {
   const email = document.getElementById('nl-email').value.trim();
   const terms = document.getElementById('nl-terms').checked;
   if (!name || !email || !terms) {
-    toast('Hiányzik valami · név, e-mail, szabályzat');
+    toast('Something is missing · name, email, policy');
     return;
   }
   const ref = 12340 + Math.floor(Math.random() * 400);
   showThanks('newsletter', ref);
-  toast('Feliratkozás rögzítve');
+  toast('Subscription saved');
 });
 
 // Suggestion submit — add to wall
 const WALL_KEY = 'kutyu.submissions.v1';
 const seedSubmissions = [
-  { name: 'Okos csésze-alátét', text: 'Méri, hány kávét ittál ma. A negyedik után üzenetet küld a terapeutádnak.', author: 'Orsi', cat: 'Iroda', votes: 42, daysAgo: 2 },
-  { name: 'Bluetooth-os partvis', text: 'Szinkronizál a porszívóval. Közösen döntenek, mikor takarítanak.', author: 'Réka', cat: 'Napi', votes: 31, daysAgo: 5 },
-  { name: 'Mosogatószer-parfüm', text: 'Három illat közül választhatsz. Mintha wellness lenne a mosogatás.', author: 'Dávid', cat: 'Konyha', votes: 28, daysAgo: 7 },
-  { name: 'Fogmosó-időmérő homokóra', text: 'Kétperces, üveg, súlyos, fahátú. Jobb, mint egy okosóra — annál jelentőségteljesebb.', author: 'N. Anna', cat: 'Fürdő', votes: 19, daysAgo: 9 },
-  { name: 'Sapka-tartó az asztalra', text: 'Mágneses, rézből. A sapkád most már otthoni designobjekt.', author: 'Zsombor', cat: 'Napi', votes: 17, daysAgo: 11 },
-  { name: 'Zokni-címkéző készlet', text: 'Hétfő–vasárnap, vagy név. Nyomtatható. Végre a zokni lesz a legrendezetebb tárgy a szekrényben.', author: 'Gergő', cat: 'Napi', votes: 14, daysAgo: 14 },
-  { name: 'Kávéfőző-hangtompító', text: 'A zaj ugyanannyi. De a hangulat egy másik kávézóé.', author: 'Luca', cat: 'Konyha', votes: 12, daysAgo: 16 },
-  { name: 'Könyvjelző-motor', text: 'Magától oldal-irányba tolja a csíkot. Te csak olvass.', author: 'P. T.', cat: 'Iroda', votes: 9, daysAgo: 18 },
-  { name: 'Törölköző-melegítő polc', text: '42°C. Hotel-érzés. Otthon. Fűtésszámla külön.', author: 'Borka', cat: 'Fürdő', votes: 7, daysAgo: 22 },
+  { name: 'Smart coaster', text: 'Tracks how many coffees you had today. After the fourth, it messages your therapist.', author: 'Orsi', cat: 'Office', votes: 42, daysAgo: 2 },
+  { name: 'Bluetooth broom', text: 'Syncs with your vacuum. Together they decide when cleaning starts.', author: 'Réka', cat: 'Everyday', votes: 31, daysAgo: 5 },
+  { name: 'Dish soap perfume', text: 'Choose from three scents. Dishwashing, now spa-adjacent.', author: 'Dávid', cat: 'Kitchen', votes: 28, daysAgo: 7 },
+  { name: 'Toothbrushing timer hourglass', text: 'Two minutes, glass, heavy, wood-backed. Better than a smartwatch — more meaningful.', author: 'N. Anna', cat: 'Bath', votes: 19, daysAgo: 9 },
+  { name: 'Desk hat holder', text: 'Magnetic, made of brass. Your cap is now a home design object.', author: 'Zsombor', cat: 'Everyday', votes: 17, daysAgo: 11 },
+  { name: 'Sock labeling kit', text: 'Monday–Sunday labels, or names. Printable. Socks finally become the most organized thing in your closet.', author: 'Gergő', cat: 'Everyday', votes: 14, daysAgo: 14 },
+  { name: 'Coffee machine silencer', text: 'Same noise level, different emotional acoustics.', author: 'Luca', cat: 'Kitchen', votes: 12, daysAgo: 16 },
+  { name: 'Bookmark motor', text: 'Automatically shifts the bookmark sideways. You just read.', author: 'P. T.', cat: 'Office', votes: 9, daysAgo: 18 },
+  { name: 'Heated towel shelf', text: '42°C. Hotel feeling. At home. Heating bill separate.', author: 'Borka', cat: 'Bath', votes: 7, daysAgo: 22 },
 ];
 
 function loadWall() {
@@ -720,7 +720,7 @@ function renderWall() {
       <h4><em>„</em>${s.name}<em>"</em></h4>
       <p>${s.text}</p>
       <div class="submission__foot">
-        <span>— ${s.author} · ${s.daysAgo}n</span>
+        <span>— ${s.author} · ${s.daysAgo}d</span>
         <span class="votes">♥ ${s.votes}</span>
       </div>
     </article>
@@ -734,17 +734,17 @@ document.getElementById('suggest-form').addEventListener('submit', (e) => {
   const what = document.getElementById('sg-what').value.trim();
   const serious = document.getElementById('sg-serious').checked;
   if (!name || !what || !serious) {
-    toast('Hiányzik valami · név, leírás, szabályzat');
+    toast('Something is missing · name, description, policy');
     return;
   }
-  const cat = 'Új';
+  const cat = 'New';
   const list = loadWall();
-  list.unshift({ name, text: what, author: 'Te · most', cat, votes: 1, daysAgo: 0 });
+  list.unshift({ name, text: what, author: 'You · now', cat, votes: 1, daysAgo: 0 });
   saveWall(list);
   renderWall();
   const ref = 12340 + Math.floor(Math.random() * 400);
   showThanks('suggest', ref);
-  toast('Javaslat rögzítve');
+  toast('Suggestion saved');
   // reset form
   document.getElementById('suggest-form').reset();
 });
