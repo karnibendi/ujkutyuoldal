@@ -86,6 +86,128 @@
   }
   normalizeGadgetCopy();
 
+  function localizeDataForEnglish() {
+    if (!isEnglish || !window.GADGETS?.collections) return;
+
+    const collectionCopy = {
+      konyhai: {
+        title: 'Kitchen gadgets',
+        subtitle: 'The Kitchen Collection',
+        lead: 'Cooking is no longer art — it is precision engineering. You can technically eat without these tools, but why live like that?',
+      },
+      furdoszobai: {
+        title: 'Bathroom gadgets',
+        subtitle: 'The Ritual Collection',
+        lead: 'The bathroom is not a room. It is a mood, a ritual, a platform. These products help you take that very seriously.',
+      },
+      eletmento: {
+        title: 'Unexpected tiny lifesavers',
+        subtitle: 'The Everyday Collection',
+        lead: 'These are the products you never planned to buy. Then you did. Now you talk about them like you invented them in lockdown.',
+      },
+      iroda: {
+        title: 'Office & productivity',
+        subtitle: 'The Focus Collection',
+        lead: 'Work is ritual. The monitor is a shrine. The mug coaster is now a life philosophy. These tools let you take yourself seriously at 7:30 AM.',
+      },
+    };
+
+    const gadgetCopy = {
+      'pizza-ollo': {
+        name: 'Pizza scissors', slogan: 'Precision slicing. Zero topping loss.', price: 'Questionably expensive',
+        what: 'A dedicated scissor built for pizza cutting, with a heavier blade and a very confident price tag.',
+        silly: 'A knife already works. A pizza wheel already works. This is dramatic overkill in premium packaging.',
+        genius: 'When toppings stop sliding and slices finally stay intact, you suddenly understand why this exists.',
+      },
+      'spagetti-mero': {
+        name: 'Spaghetti measurer', slogan: 'Carb math, finally objective.', price: 'Reasonable if you avoid overthinking',
+        what: 'A plate with portion holes that tells you exactly how much dry pasta to cook.',
+        silly: 'You can weigh pasta in grams — or just eyeball it like everyone has for decades.',
+        genius: 'No more overcooking for four and eating leftovers for three days straight.',
+      },
+      jegkocka: {
+        name: 'Extreme ice mold', slogan: 'Even ice can be art.', price: 'Great as a gift',
+        what: 'A silicone mold for diamond, skull, rose, and sculpture-shaped ice cubes.',
+        silly: 'Ice melts while you are still posting it. A normal cube cools drinks just fine.',
+        genius: 'One dramatic cube in a glass can instantly upgrade the whole evening.',
+      },
+      'avokado-kes': {
+        name: 'Avocado knife set', slogan: 'Three blades. One fruit. A full lifestyle.', price: 'Brunch-compatible',
+        what: 'A three-piece set for cutting, pitting, and slicing avocados — and almost nothing else.',
+        silly: 'A regular knife and spoon can do the same job at zero extra cost.',
+        genius: 'If you make avocado toast often, this removes the daily micro-chaos.',
+      },
+      'wc-papir-tarto': {
+        name: 'Toilet roll + phone holder', slogan: 'Hygiene infrastructure for the mobile era.', price: 'Home-office investment',
+        what: 'A wall-mounted holder that gives your toilet paper and your phone one shared docking area.',
+        silly: 'People survived by placing phones on random surfaces for years.',
+        genius: 'In hybrid-work reality, this tiny tray can feel weirdly mission-critical.',
+      },
+      'fogkrem-adagolo': {
+        name: 'Automatic toothpaste dispenser', slogan: 'Zero-touch hygiene, maximum style.', price: 'Worth it before coffee',
+        what: 'A wall unit that dispenses a consistent amount of toothpaste with one push.',
+        silly: 'Squeezing a tube is not exactly a problem technology needed to solve.',
+        genius: 'At 7 AM, one less tiny decision can feel like genuine progress.',
+      },
+      'habos-szappan': {
+        name: 'Foaming soap dispenser', slogan: 'Soap, but in executive form.', price: 'Guest-ready price tier',
+        what: 'A pump that turns diluted liquid soap into rich foam.',
+        silly: 'Your hands can make foam on their own, free of charge.',
+        genius: 'Guests press once, see foam, and instantly think your home is upgraded.',
+      },
+      'zokni-rendezo': {
+        name: 'Sock organizer', slogan: 'The final answer to sock chaos.', price: 'Morning-panic prevention',
+        what: 'A drawer insert with separate cells for each pair of socks.',
+        silly: 'Socks already lived in drawers before this product existed.',
+        genius: 'Dark mornings get easier when every pair has a fixed location.',
+      },
+      'mini-zseblampa': {
+        name: 'Mini keychain flashlight', slogan: 'Pocket safety. Room-level light.', price: 'Price of peace of mind',
+        what: 'A tiny rechargeable LED light that hangs on your keychain.',
+        silly: 'Your phone has a flashlight too, and you already carry it.',
+        genius: 'When your phone is nearly dead, this backup light becomes the hero.',
+      },
+      cuccfogo: {
+        name: 'Bedside pocket caddy', slogan: 'The age of the nightstand is over.', price: 'Mattress-level investment',
+        what: 'A fabric or faux-leather pocket that tucks under your mattress edge.',
+        silly: 'Nightstands solved this in the 17th century and still work.',
+        genius: 'No more fishing your phone out from the gap beside the bed at 2 AM.',
+      },
+      'kabel-rendezo': {
+        name: 'Magnetic cable organizer', slogan: 'At last, organized chaos.', price: 'Surprisingly affordable',
+        what: 'Small clips that keep charging and peripheral cables fixed at desk level.',
+        silly: 'A rubber band can imitate this for almost nothing.',
+        genius: 'When your cable is always where your hand expects it, desk life improves fast.',
+      },
+      'pomodoro-kocka': {
+        name: 'Pomodoro timer cube', slogan: 'Your focus, now in physical form.', price: 'Deep-work premium',
+        what: 'A physical timer cube with preset durations on each face.',
+        silly: 'Phones and laptops already include timers, plus reminders.',
+        genius: 'Turning a real object can reduce distractions and trigger instant focus.',
+      },
+      'monitor-led': {
+        name: 'Monitor light bar', slogan: 'Less glare. More pro energy.', price: 'Ergonomics surcharge',
+        what: 'A clip-on lamp that illuminates the desk without shining into your eyes.',
+        silly: 'Most rooms already have ceiling lights for this job.',
+        genius: 'Evening work becomes less tiring when contrast and glare are controlled.',
+      },
+    };
+
+    window.GADGETS.collections.forEach(collection => {
+      const copy = collectionCopy[collection.id];
+      if (copy) Object.assign(collection, copy);
+      (collection.gadgets || []).forEach(gadget => {
+        const gCopy = gadgetCopy[gadget.slug];
+        if (gCopy) Object.assign(gadget, gCopy);
+      });
+    });
+
+    window.GADGETS_FLAT = window.GADGETS.collections.flatMap(c =>
+      c.gadgets.map(g => ({ ...g, collection: c.title, collectionId: c.id, collectionNumber: c.number }))
+    );
+  }
+  localizeDataForEnglish();
+
   function updateNavCount() {
     document.querySelectorAll('[data-saved-count]').forEach(el => {
       el.textContent = String(KutyuStore.count()).padStart(2, '0');
